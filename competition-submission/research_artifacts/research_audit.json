@@ -1,0 +1,101 @@
+{
+  "purpose": "Independent audit and candidate comparison; no production artifact was overwritten.",
+  "data_audit": {
+    "rows": 85544,
+    "columns": [
+      "Date",
+      "Ticker",
+      "Open",
+      "High",
+      "Low",
+      "Close",
+      "Volume"
+    ],
+    "date_min": "2015-01-02",
+    "date_max": "2024-12-31",
+    "ticker_count": 34,
+    "rows_per_ticker": {
+      "AAL": 2516,
+      "AAPL": 2516,
+      "AMZN": 2516,
+      "BA": 2516,
+      "C": 2516,
+      "CAT": 2516,
+      "CROX": 2516,
+      "CVX": 2516,
+      "DIS": 2516,
+      "DUK": 2516,
+      "F": 2516,
+      "GIS": 2516,
+      "GOOGL": 2516,
+      "HOG": 2516,
+      "HON": 2516,
+      "INTC": 2516,
+      "JNJ": 2516,
+      "JPM": 2516,
+      "KO": 2516,
+      "M": 2516,
+      "META": 2516,
+      "MMM": 2516,
+      "MSFT": 2516,
+      "NEE": 2516,
+      "NKE": 2516,
+      "NVDA": 2516,
+      "PFE": 2516,
+      "PG": 2516,
+      "PLUG": 2516,
+      "T": 2516,
+      "UNH": 2516,
+      "VZ": 2516,
+      "WMT": 2516,
+      "XOM": 2516
+    },
+    "null_cells": 0,
+    "duplicate_rows": 0,
+    "duplicate_ticker_date_keys": 0,
+    "invalid_price_rows": 0,
+    "negative_volume_rows": 0,
+    "ohlc_high_violations": 0,
+    "ohlc_low_violations": 0,
+    "action": "No source-data edits were justified; the official CSV is preserved byte-for-byte."
+  },
+  "leakage_controls": [
+    "Official selection uses only chronological 2019-2022 folds.",
+    "Each prediction sees history through the prior close and trades at the next open.",
+    "2023 is a development diagnostic and 2024 remains a final untouched diagnostic in this script.",
+    "The 2024 rows are not used in selection_score or fitting."
+  ],
+  "selection_rule": "mean Sharpe minus 0.25 times across-year standard deviation on 2019-2022",
+  "validation_summary": [
+    {
+      "candidate": "candidate_30_120",
+      "mean": 1.3092061349627184,
+      "std": 0.7949230939601938,
+      "selection_score": 1.11047536147267
+    },
+    {
+      "candidate": "official_starter_20_100",
+      "mean": 1.1882192817244703,
+      "std": 0.6095789902071692,
+      "selection_score": 1.035824534172678
+    },
+    {
+      "candidate": "candidate_majority_10_80_20_100_30_120",
+      "mean": 1.1701012954512937,
+      "std": 0.638731704485025,
+      "selection_score": 1.0104183693300375
+    },
+    {
+      "candidate": "candidate_10_80",
+      "mean": 1.13397472246594,
+      "std": 0.7857146794189149,
+      "selection_score": 0.9375460526112113
+    }
+  ],
+  "finding": "No candidate demonstrated a safe, consistent improvement over the official selected rule across the predeclared validation and later diagnostics.",
+  "artifacts": [
+    "research_audit.json",
+    "candidate_metrics.csv",
+    "candidate_summary.csv"
+  ]
+}
