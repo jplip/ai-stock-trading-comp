@@ -1,0 +1,219 @@
+{
+  "dataset": "Official SDSU AI Club Fall26 AI Trading Competition stock_prices_2015_2024.csv",
+  "download_url": "https://raw.githubusercontent.com/aiclub-sdsu/workshops/refs/heads/main/Fall26/AI_Trading_Competition/stock_prices_2015_2024.csv",
+  "repository_file_url": "https://github.com/aiclub-sdsu/workshops/blob/main/Fall26/AI_Trading_Competition/stock_prices_2015_2024.csv",
+  "fetched_utc": "2026-10-30T20:24:21.339140+00:00",
+  "sha256": "ecc254dabaf8e626457d03b0ac45ff00b6a8e204b583f3e4d2a66598e496729b",
+  "bytes": 5497338,
+  "rows": 85544,
+  "columns": [
+    "Date",
+    "Ticker",
+    "Open",
+    "High",
+    "Low",
+    "Close",
+    "Volume"
+  ],
+  "date_range": {
+    "first": "2015-01-02",
+    "last": "2024-12-31"
+  },
+  "ticker_count": 34,
+  "rows_by_year": {
+    "2015": 8568,
+    "2016": 8568,
+    "2017": 8534,
+    "2018": 8534,
+    "2019": 8568,
+    "2020": 8602,
+    "2021": 8568,
+    "2022": 8534,
+    "2023": 8500,
+    "2024": 8568
+  },
+  "tickers": {
+    "AAL": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "AAPL": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "AMZN": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "BA": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "C": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "CAT": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "CROX": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "CVX": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "DIS": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "DUK": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "F": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "GIS": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "GOOGL": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "HOG": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "HON": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "INTC": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "JNJ": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "JPM": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "KO": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "M": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "META": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "MMM": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "MSFT": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "NEE": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "NKE": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "NVDA": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "PFE": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "PG": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "PLUG": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "T": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "UNH": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "VZ": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "WMT": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    },
+    "XOM": {
+      "rows": 2516,
+      "first_date": "2015-01-02",
+      "last_date": "2024-12-31"
+    }
+  },
+  "preservation": "Downloaded bytes are preserved exactly. No cleaning, filtering, rounding, column renaming, resampling, or price adjustment was applied.",
+  "adjustment_handling": "OHLC and Volume are used as supplied by the official competition CSV. The CSV does not state its provider adjustment convention; no Yahoo data or independently adjusted prices were substituted.",
+  "competition_split": {
+    "training": "2015-01-01 through 2022-12-31 only",
+    "practice": "2023-01-01 through 2023-12-31 only",
+    "held_out": "2024 data must not be used for fitting or parameter selection"
+  },
+  "validation": {
+    "duplicate_ticker_date_keys": 0,
+    "checks": "ISO dates; finite positive OHLC; finite nonnegative Volume; per-ticker chronology; OHLC ordering with absolute tolerance 0.00001; unique ticker/date keys",
+    "issues": []
+  }
+}

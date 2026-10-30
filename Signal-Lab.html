@@ -1,0 +1,600 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <meta name="description" content="A local stock prediction research lab with chronological testing, transparent models, and downloadable experiment results.">
+  <title>Signal Lab — Test the idea.</title>
+  <style>
+:root{color-scheme:dark;--bg:#10171e;--panel:#151f28;--panel-2:#19252f;--ink:#edf2f5;--muted:#93a4b1;--subtle:#647887;--border:#2a3843;--mint:#c0f4b1;--blue:#8dc9ee;--amber:#e7c781;--red:#f09a9a;--font:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 var(--font);font-weight:400}button,input,select{font:inherit}button,a,input,select{-webkit-tap-highlight-color:transparent}button{cursor:pointer}button:disabled{cursor:wait;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--mint);outline-offset:4px}button{color:inherit}a{color:inherit}h1,h2,h3,p{margin:0}button,select,input{border-radius:5px}button{border:0}button,input,select{transition:background .15s,border-color .15s,opacity .15s}button svg{height:17px;width:17px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}strong{font-weight:600}[hidden]{display:none!important}.muted{color:var(--muted)}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip-link{position:absolute;top:-100px;left:20px;padding:10px 16px;background:var(--mint);color:#102014;z-index:10}.skip-link:focus{top:12px}.site-header{height:85px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 4%;gap:48px}.brand{display:flex;align-items:center;font-size:24px;font-weight:700;text-decoration:none;letter-spacing:-1.3px;white-space:nowrap}.brand-light{font-weight:400;color:#becbd4}.brand-dot{color:var(--mint);font-weight:700}.brand-symbol{display:flex;align-items:center;gap:3px;margin-right:11px;height:24px}.brand-symbol i{width:3px;background:var(--mint);display:block;border-radius:1px}.brand-symbol i:nth-child(1){height:9px}.brand-symbol i:nth-child(2){height:17px}.brand-symbol i:nth-child(3){height:12px}.brand-symbol i:nth-child(4){height:24px}.nav-tabs{display:flex;align-self:stretch;gap:28px}.nav-tab{position:relative;color:var(--muted);background:transparent;padding:3px 0 0;font-size:13px;border-radius:0}.nav-tab:hover{color:var(--ink)}.nav-tab.active{color:var(--ink)}.nav-tab.active:after{position:absolute;bottom:-1px;left:0;right:0;height:2px;background:var(--mint);content:""}.header-meta{margin-left:auto;color:var(--muted);display:flex;align-items:center;gap:8px;font-size:11px}.local-dot,.status-dot{width:6px;height:6px;background:var(--mint);border-radius:50%;display:inline-block}.version{font-size:10px;margin-left:11px;border:1px solid var(--border);border-radius:3px;padding:2px 5px;color:var(--subtle)}main{max-width:1600px;margin:auto;padding:40px 4% 0}.page-top{display:flex;align-items:center;justify-content:space-between;gap:30px;margin-bottom:30px}.eyebrow{display:flex;align-items:center;gap:9px;font-size:10px;letter-spacing:1.8px;font-weight:600;color:var(--muted)}.eyebrow-line{width:19px;height:1px;background:var(--mint)}h1{font-size:34px;line-height:1.3;letter-spacing:-1.2px;font-weight:550;margin:10px 0 9px}h1>span{color:var(--muted);font-weight:400}.intro{color:var(--muted);font-size:13px}.source-block{display:flex;flex-direction:column;align-items:flex-end;gap:10px;padding-top:14px}.source-block>span:last-child{font-size:11px;color:var(--muted)}.badge{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;font-size:9px;letter-spacing:1.05px;border:1px solid;border-radius:4px;font-weight:600;white-space:nowrap}.badge.synthetic{color:var(--amber);background:#e7c7810b;border-color:#e7c78130}.badge.imported{color:var(--blue);background:#8dc9ee0b;border-color:#8dc9ee30}.mobile-break{display:none}.experiment-bar{display:grid;grid-template-columns:1.1fr 1.5fr .7fr .85fr .95fr 1.15fr;gap:22px;align-items:start;padding:22px;background:var(--panel);border:1px solid var(--border);border-radius:8px;margin-bottom:26px}.field-label{font-size:9px;letter-spacing:.9px;font-weight:600;color:#c0cbd3;display:flex;align-items:center;justify-content:space-between;margin-bottom:9px;min-height:14px;gap:5px;white-space:nowrap}.field-label output{color:var(--mint);font-size:12px;letter-spacing:0}.unit{color:var(--muted);letter-spacing:0;font-size:9px;font-weight:400}.button{height:38px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:12px;font-size:11px;font-weight:600;white-space:nowrap;border:1px solid transparent;text-decoration:none;line-height:1}.button.primary{background:var(--mint);color:#18261e;border-color:var(--mint)}.button.primary:hover{background:#d0fcc3;border-color:#d0fcc3}.button.secondary{background:#ffffff03;border-color:#3b4b57;color:#dbe5ec}.button.secondary:hover{background:#ffffff07;border-color:#738391}.upload-button{width:100%;justify-content:flex-start;padding-left:11px;font-size:11px}.text-button{padding:0;background:transparent;border-radius:0;font-size:10px;color:var(--muted);text-decoration:underline;text-underline-offset:3px}.text-button:hover{color:var(--ink)}.data-control>.text-button{margin-top:7px}.control-hint{display:block;color:var(--subtle);font-size:9px;margin-top:7px;line-height:1.3}.control-group input[type=number],.control-group select{border:1px solid #3b4b57;background:#101920;height:38px;width:100%;padding:0 10px;outline-offset:2px;color:var(--ink);font-size:12px}.control-group select{appearance:auto}.control-group input[type=range]{accent-color:var(--mint);width:100%;margin:10px 0 6px;height:19px;cursor:pointer}.run-control{padding-top:23px}.run-control>.button{width:100%;justify-content:space-between}.run-state{display:block;font-size:9px;color:var(--subtle);margin-top:7px;text-align:center;white-space:nowrap}.run-state.stale{color:var(--amber)}.money-input{display:flex;align-items:center;position:relative}.money-input>span{position:absolute;left:10px;font-size:12px;color:var(--muted)}.money-input input[type=number]{padding-left:24px}.error-banner{display:flex;align-items:flex-start;gap:12px;border:1px solid #f09a9a55;background:#34242b;padding:16px 18px;margin-bottom:20px;border-radius:6px;color:#f5b6b6;font-size:12px}.error-banner p{margin-top:4px;color:#e2c0c4}.error-icon{border:1px solid currentColor;border-radius:50%;height:19px;width:19px;text-align:center;font-weight:600;flex-shrink:0;line-height:18px}.icon-button{background:transparent;font-size:24px;line-height:20px;margin-left:auto;padding:0 0 0 12px}.staged-notice{font-size:12px;color:var(--amber);padding:11px 15px;border:1px solid #e7c78130;border-radius:5px;background:#e7c78108;margin-top:-12px;margin-bottom:24px}.section-caption{display:flex;justify-content:space-between;align-items:center;font-size:10px;gap:20px;margin-bottom:13px}.section-caption>div{display:flex;align-items:center;gap:9px}.section-caption strong{font-size:9px;letter-spacing:1px;color:#b6c5ce}.section-caption #test-window{color:var(--subtle);padding-left:3px}.section-caption>.muted{font-size:9px}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}.metric-card{padding:19px 21px;background:var(--panel);border:1px solid var(--border);border-radius:7px;min-height:135px}.metric-label{color:#b5c2cb;display:flex;justify-content:space-between;align-items:center;font-size:11px}.metric-icon{color:var(--subtle);font-size:17px;line-height:14px}.metric-number{font-size:31px;letter-spacing:-.9px;line-height:1.3;font-variant-numeric:tabular-nums;margin:8px 0 5px}.metric-number.positive{color:var(--mint)}.metric-number.negative{color:var(--red)}.metric-note{font-size:9px;color:var(--subtle);line-height:1.4}.metric-note .positive{color:var(--mint)}.metric-note .negative{color:var(--red)}.main-grid{display:grid;grid-template-columns:minmax(0,2.7fr) minmax(270px,1fr);gap:20px;margin-bottom:20px}.panel{background:var(--panel);border:1px solid var(--border);border-radius:7px;padding:23px;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:15px}.eyebrow.small{font-size:8px;letter-spacing:1.35px;margin-bottom:7px;color:var(--subtle)}h2{font-size:17px;font-weight:500;line-height:1.4;letter-spacing:-.35px}.segmented{padding:3px;background:#101920;border:1px solid var(--border);border-radius:5px;display:flex;flex-shrink:0;gap:2px}.segmented button{font-size:10px;background:transparent;color:var(--muted);padding:6px 10px}.segmented button.selected{background:#2a3945;color:var(--ink)}.chart-summary{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:23px 0 6px}.chart-total{font-size:25px;letter-spacing:-.7px;font-variant-numeric:tabular-nums}.chart-total-label{font-size:10px;color:var(--subtle);margin-left:5px}.chart-legend{display:flex;gap:18px;font-size:9px;color:var(--muted)}.chart-legend>span{display:flex;align-items:center;gap:6px}.legend-dot{height:6px;width:6px;border-radius:50%;display:inline-block;flex-shrink:0}.legend-dot.strategy{background:var(--mint)}.legend-dot.baseline{background:var(--blue)}.chart-wrap{position:relative;width:100%;min-height:236px;margin:0 -4px}.chart-wrap svg{display:block;width:100%;height:auto;overflow:visible}.chart-wrap svg text{font-family:var(--font);font-size:9px;fill:#6d8392;letter-spacing:.1px}.chart-wrap svg .chart-grid{stroke:#2b3a45;stroke-width:1;stroke-dasharray:2 5}.chart-wrap svg .strategy-line{stroke:var(--mint);stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}.chart-wrap svg .baseline-line{stroke:var(--blue);stroke-width:1.7;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.65}.chart-wrap svg .hover-line{stroke:#8da5b6;stroke-width:1;stroke-dasharray:4 4}.chart-empty{position:absolute;inset:0;display:grid;place-content:center;color:var(--subtle);font-size:11px}.chart-tooltip{position:absolute;padding:11px 13px;min-width:155px;border:1px solid #4b5f6d;border-radius:5px;background:#10171ef5;pointer-events:none;z-index:2;font-size:10px;box-shadow:0 5px 20px #0004}.chart-tooltip>strong{font-size:10px;display:block;margin-bottom:7px;color:var(--muted)}.chart-tooltip>div{display:flex;justify-content:space-between;gap:20px;margin-top:4px}.chart-tooltip .tip-strategy{color:var(--mint)}.chart-tooltip .tip-baseline{color:var(--blue)}.chart-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:13px;border-top:1px solid var(--border);font-size:8px;color:var(--subtle);margin-top:5px}.chart-footer>span:first-child{display:flex;align-items:center;gap:6px}.chart-footer>span:first-child .legend-dot{width:4px;height:4px}.signal-panel{padding:23px 22px;display:flex;flex-direction:column}.signal-panel h2{font-size:16px}.signal-mark{font-size:20px;color:var(--subtle);align-self:flex-start;margin-top:17px}.signal-score{display:flex;justify-content:center;padding:19px 0 14px}.probability-ring{height:126px;width:126px;border-radius:50%;background:conic-gradient(var(--mint) 0% 0%,#2a3945 0% 100%);display:grid;place-items:center;transform:rotate(-90deg)}.probability-ring>div{background:var(--panel);border-radius:50%;height:116px;width:116px;display:flex;align-items:center;justify-content:center;flex-direction:column;transform:rotate(90deg)}.probability-ring span{font-size:29px;letter-spacing:-1px;font-variant-numeric:tabular-nums}.probability-ring small{font-size:8px;color:var(--subtle);margin-top:0}.signal-action{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.signal-pill{font-size:8px;letter-spacing:.8px;text-transform:uppercase;padding:4px 7px;background:#c0f4b110;color:var(--mint);border:1px solid #c0f4b12a;border-radius:3px}.signal-pill.cash{color:var(--blue);border-color:#8dc9ee2a;background:#8dc9ee0b}.signal-action .muted{font-size:9px}.allocation-row{display:flex;justify-content:space-between;font-size:10px;color:#b5c3cc}.allocation-row strong{color:var(--ink);font-variant-numeric:tabular-nums}.allocation-track{height:4px;background:#293a45;border-radius:4px;margin:9px 0 13px;overflow:hidden}.allocation-track>span{display:block;height:100%;width:0;background:var(--mint);border-radius:4px}.signal-details{margin:0;font-size:9px}.signal-details>div{display:flex;justify-content:space-between;margin:6px 0;gap:6px}.signal-details dt{color:var(--muted)}.signal-details dd{margin:0;color:#d0dce4;font-variant-numeric:tabular-nums}.small-note{color:var(--subtle);font-size:9px;line-height:1.6}.signal-panel>.small-note{margin:10px 0 14px}.full-width{width:100%;justify-content:space-between;margin-top:auto;height:33px;font-size:9px}.research-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:20px;margin-bottom:20px}.subtle-chip{font-size:8px;white-space:nowrap;color:var(--muted);background:#ffffff03;border:1px solid var(--border);border-radius:4px;padding:4px 7px}.model-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:23px}.model-card{padding:14px 12px 13px;background:#10192088;border:1px solid var(--border);border-radius:5px;min-width:0}.model-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;gap:5px}.model-icon{font-size:15px;color:var(--mint);line-height:1;display:inline-flex;align-items:center}.model-index{font-size:8px;color:var(--subtle);letter-spacing:1px}.model-card h3{font-size:11px;font-weight:500;line-height:1.4;min-height:31px}.model-weight{font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.7px;margin:8px 0}.model-weight>small{font-size:8px;color:var(--subtle);letter-spacing:0;margin-left:5px}.model-weight-track{height:3px;background:#2a3945;border-radius:5px;margin-bottom:10px}.model-weight-track>span{display:block;height:100%;background:var(--mint);border-radius:5px}.model-card:nth-child(2) .model-weight-track>span{background:var(--blue)}.model-card:nth-child(2) .model-icon{color:var(--blue)}.model-card:nth-child(3) .model-weight-track>span{background:#c4b1e7}.model-card:nth-child(3) .model-icon{color:#c4b1e7}.model-stat{display:flex;justify-content:space-between;gap:6px;font-size:8px;color:var(--muted);margin-top:5px}.model-stat strong{font-weight:400;color:#d6e1e9;font-variant-numeric:tabular-nums}.model-description{font-size:8px;color:var(--subtle);margin-top:10px;line-height:1.5}.panel-footnote{font-size:9px;color:var(--subtle);line-height:1.65;margin-top:18px}.feature-list{display:flex;flex-direction:column;gap:14px;margin-top:23px}.feature-row{display:grid;grid-template-columns:1.15fr 1fr 43px;align-items:center;gap:13px}.feature-name{font-size:10px;color:#bdcbd4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.feature-bar{height:5px;background:#283843;position:relative;border-radius:3px;overflow:hidden}.feature-bar>span{display:block;height:100%;min-width:1px;background:var(--mint);border-radius:3px}.feature-bar>span.negative{background:var(--blue)}.feature-value{font-size:10px;color:var(--mint);text-align:right;font-variant-numeric:tabular-nums}.feature-value.negative{color:var(--blue)}.timeline-panel{margin-bottom:20px}.split-track{display:flex;margin:24px 0 12px;height:37px;gap:3px}.split-track>div{padding:10px 12px;font-size:8px;letter-spacing:1px;display:flex;justify-content:space-between;align-items:center;border:1px solid}.train-segment{width:60%;background:#8dc9ee12;border-color:#8dc9ee3a!important;color:var(--blue);border-radius:4px 0 0 4px}.validation-segment{width:20%;background:#c4b1e712;border-color:#c4b1e73a!important;color:#c4b1e7}.test-segment{width:20%;background:#c0f4b112;border-color:#c0f4b13a!important;color:var(--mint);border-radius:0 4px 4px 0}.split-labels{display:grid;grid-template-columns:3fr 1fr 1fr;gap:14px;font-size:9px;color:var(--subtle)}.split-labels strong{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-bottom:2px}.audit-list{display:flex;gap:24px;flex-wrap:wrap;padding-top:19px;margin-top:20px;border-top:1px solid var(--border)}.audit-item{font-size:9px;display:flex;align-items:center;gap:7px;color:var(--muted)}.audit-item>span{color:var(--mint);font-size:11px}.audit-item.failed>span{color:var(--red)}.trade-summary{display:flex;gap:23px;color:var(--muted);font-size:10px;margin:21px 0 14px}.trade-summary>.muted{margin-left:auto;color:var(--subtle)}.export-buttons{display:flex;gap:8px}.small-button{height:31px;font-size:9px;padding:0 10px}.table-scroll{overflow-x:auto;margin:0 -23px}table{width:100%;border-collapse:collapse;white-space:nowrap;font-size:10px;font-variant-numeric:tabular-nums}th{text-align:left;color:var(--subtle);font-size:8px;letter-spacing:.6px;text-transform:uppercase;font-weight:500;background:#10192055}th,td{padding:11px 17px;border-bottom:1px solid #29384399}th:first-child,td:first-child{padding-left:23px}th:last-child,td:last-child{padding-right:23px}td{color:#bdcbd4}.numeric{text-align:right}.table-action{display:inline-flex;align-items:center;font-size:8px;color:var(--mint);padding:2px 5px;background:#c0f4b10a;border-radius:3px;text-transform:uppercase;letter-spacing:.4px}.table-action.cash{color:var(--blue);background:#8dc9ee0a}.return-positive{color:var(--mint)}.return-negative{color:var(--red)}.empty-row{text-align:center;color:var(--subtle);padding:25px}.site-footer{display:flex;align-items:center;gap:25px;padding:30px 0;border-top:1px solid var(--border);margin-top:42px;font-size:10px;color:var(--subtle)}.footer-brand{font-size:17px;letter-spacing:-.8px;color:#a9b8c3}.site-footer>span{margin-left:auto}.notes-heading{max-width:700px;padding:18px 0 30px}.notes-heading h2{font-size:36px;line-height:1.2;margin:13px 0 18px;letter-spacing:-1.2px}.notes-heading h2 span{color:var(--muted);font-weight:400}.notes-heading>p{color:var(--muted);font-size:13px;max-width:660px;line-height:1.8}.notes-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.note-card{padding:23px 21px}.step-number{color:var(--mint);font-size:12px;font-variant-numeric:tabular-nums}.note-card h3{font-size:15px;font-weight:500;margin:20px 0 14px;letter-spacing:-.3px}.note-card p{color:var(--muted);font-size:11px;line-height:1.85;margin-top:11px}.note-card p strong{color:#d4e0e8}.explain-panel{margin-top:20px;border-color:#c0f4b135;background:linear-gradient(110deg,#c0f4b108,var(--panel) 70%);padding:28px}.explain-panel h3{font-size:20px;font-weight:500;margin:12px 0 16px;letter-spacing:-.4px}.explain-panel>p{color:#b8c9d3;font-size:13px;line-height:1.9;max-width:1050px}.explain-panel>.small-note{font-size:10px;margin-top:17px;color:var(--subtle)}.definitions-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:20px;margin-top:20px}.definitions-grid h3,.data-grid h3{font-size:19px;font-weight:500;letter-spacing:-.4px;margin-bottom:18px}.definitions{font-size:11px;margin:0}.definitions>div{display:grid;grid-template-columns:125px 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--border)}.definitions>div:last-child{border-bottom:0}.definitions dt{color:#dce6ed}.definitions dd{margin:0;color:var(--muted)}.limitations>p{color:var(--muted);font-size:12px;line-height:1.9;margin:0 0 20px}.inline-link{font-size:11px;color:var(--mint);text-decoration:none}.inline-link:hover{text-decoration:underline}.inline-link>span{margin-left:7px}.data-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:20px}.data-grid h3{margin-top:8px}.data-grid p{font-size:12px;line-height:1.85;color:var(--muted)}code{font:10px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;color:#c9d9e3;background:#ffffff05;border-radius:3px;padding:2px 4px}.code-example{background:#0f1820;border:1px solid var(--border);border-radius:5px;margin:22px 0;overflow:auto;padding:17px 20px}.code-example pre{font:11px/2 ui-monospace,SFMono-Regular,Menlo,monospace;margin:0;color:var(--blue)}.data-actions{display:flex;gap:11px;align-items:center;flex-wrap:wrap}.data-actions .text-button{font-size:10px;margin-top:3px}.data-requirements{display:flex;gap:30px;margin:26px 0 20px;padding:18px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);font-size:10px;color:var(--subtle)}.data-requirements strong{font-size:17px;display:block;font-weight:500;color:#dbe6ee;margin-bottom:4px}.data-status{font-size:10px;color:var(--muted);overflow-wrap:anywhere}.rule-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:22px}.rule-list>li{display:flex;gap:16px;align-items:flex-start}.rule-list>li>span{color:var(--mint);font-size:10px;padding-top:2px}.rule-list strong{font-size:12px;font-weight:500}.rule-list p{font-size:11px;margin-top:4px}.privacy-panel{margin-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:55px;padding:28px}.privacy-panel>div:first-child{position:relative;padding-left:45px}.privacy-icon{position:absolute;top:0;left:0;color:var(--mint);font-size:25px}.privacy-panel h3{font-size:17px;font-weight:500;margin-bottom:9px}.privacy-panel p{font-size:11px;color:var(--muted);line-height:1.8}.privacy-panel .badge{margin-bottom:12px}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#2b3c31;border:1px solid #c0f4b155;box-shadow:0 8px 28px #0005;border-radius:6px;padding:11px 18px;color:var(--mint);font-size:11px;max-width:90%;z-index:20}.loading .metric-number,.loading .chart-total{opacity:.35}.loading #run-button{opacity:.65;cursor:wait}.loading #run-button>span:last-child{animation:rotate 1.5s linear infinite}@keyframes rotate{to{transform:rotate(360deg)}}
+@media(min-width:1500px){main{padding-top:45px}.site-header{padding:0 max(4%,calc((100% - 1472px)/2))}.chart-wrap{min-height:270px}.panel{padding:25px}.table-scroll{margin:0 -25px}.signal-panel{padding:25px}.signal-score{padding:21px 0}.probability-ring{height:140px;width:140px}.probability-ring>div{height:130px;width:130px}}
+@media(max-width:1190px){.site-header{gap:35px;padding:0 3%}main{padding:32px 3% 0}.experiment-bar{gap:14px;padding:18px;grid-template-columns:1fr 1.25fr .65fr .8fr .9fr 1.1fr}.control-hint{font-size:8px}.field-label{font-size:8px;letter-spacing:.5px}.unit{font-size:8px}.button{padding-left:10px;padding-right:10px;font-size:10px}.panel{padding:20px}.signal-panel{padding:20px 17px}.main-grid{grid-template-columns:minmax(0,2.5fr) minmax(255px,1fr)}.chart-total-label{display:none}.metric-card{padding:17px}.chart-footer{font-size:7px}.chart-wrap{min-height:215px}.research-grid{grid-template-columns:1.5fr 1fr}.model-cards{gap:8px}.model-card{padding:12px 9px}.model-card h3{font-size:10px}.model-stat{font-size:7px}.feature-row{gap:9px}.feature-name,.feature-value{font-size:9px}.notes-grid{grid-template-columns:repeat(2,1fr)}.trade-summary{gap:15px}.table-scroll{margin:0 -20px}.notes-heading h2{font-size:33px}}
+@media(max-width:960px){.header-meta{font-size:0;gap:0}.header-meta .local-dot{margin-right:8px}.header-meta .version{font-size:9px;margin-left:0}.site-header{height:76px}.page-top{align-items:flex-start}h1{font-size:28px}.intro{font-size:12px}.source-block{padding-top:24px;max-width:190px}.source-block>span:last-child{text-align:right;font-size:9px}.experiment-bar{grid-template-columns:1.1fr 1.5fr .7fr .85fr;gap:20px}.capital-control{grid-column:2;grid-row:2}.run-control{grid-column:3 / span 2;grid-row:2}.data-control{grid-row:1 / span 2}.control-group.compact-control{min-width:0}.metric-grid{gap:10px}.metric-number{font-size:28px}.metric-label{font-size:10px}.metric-note{font-size:8px}.main-grid{grid-template-columns:minmax(0,1fr) 255px;gap:14px}.panel{padding:18px}h2{font-size:15px}.performance-panel .panel-head{align-items:flex-start;gap:7px}.performance-panel .eyebrow{font-size:7px}.performance-panel h2{font-size:14px}.segmented button{font-size:9px;padding:5px 7px}.chart-summary{margin-top:28px;flex-wrap:wrap;gap:9px}.chart-legend{gap:11px;font-size:8px}.chart-wrap{margin-top:15px;min-height:190px}.chart-footer{align-items:flex-start;flex-direction:column;gap:5px}.signal-panel{padding:18px}.signal-score{padding:16px 0}.probability-ring{height:115px;width:115px}.probability-ring>div{height:105px;width:105px}.signal-panel>.small-note{font-size:8px;margin-top:9px}.research-grid{grid-template-columns:1fr;gap:14px}.model-cards{gap:14px}.model-card{padding:16px}.model-card h3{font-size:12px;min-height:auto}.model-stat{font-size:9px}.model-description{font-size:9px;max-width:230px}.feature-list{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 30px}.feature-row{grid-template-columns:1.1fr 1fr 35px}.feature-name,.feature-value{font-size:10px}.trades-panel .panel-head{align-items:flex-start}.export-buttons{flex-wrap:wrap;justify-content:flex-end;gap:6px}.small-button{font-size:8px;height:29px}.trade-summary{font-size:9px;gap:15px}.table-scroll{margin:0 -18px}.data-grid{grid-template-columns:1fr}.data-requirements{gap:40px}.privacy-panel{gap:30px}.section-caption>.muted{display:none}.definitions-grid{grid-template-columns:1fr}.split-labels{font-size:8px}.split-labels strong{font-size:9px}.audit-list{gap:14px 20px}.audit-item{font-size:8px}}
+@media(max-width:650px){.site-header{height:auto;min-height:108px;padding:20px 5% 0;gap:0;flex-wrap:wrap;justify-content:space-between}.brand{font-size:23px}.brand-symbol{margin-right:9px}.header-meta{margin-left:0}.nav-tabs{order:3;width:100%;height:44px;gap:26px;margin-top:8px}.nav-tab{font-size:11px;padding-top:0}.nav-tab.active:after{bottom:0}.header-meta .version{display:none}.header-meta:after{content:"LOCAL MODE";font-size:8px;letter-spacing:.8px;color:var(--muted)}main{padding:29px 5% 0}.page-top{display:block;margin-bottom:24px}h1{font-size:31px;margin-top:12px;line-height:1.22}.mobile-break{display:block}.eyebrow{font-size:8px;letter-spacing:1.3px}.intro{font-size:11px;line-height:1.7;max-width:300px;margin-top:12px}.source-block{align-items:flex-start;max-width:none;padding-top:19px;gap:6px}.source-block>span:last-child{text-align:left;font-size:9px}.badge{font-size:8px;padding:5px 8px}.experiment-bar{grid-template-columns:1fr 1fr;padding:17px;gap:19px 16px;margin-bottom:23px}.data-control{grid-row:auto;grid-column:1}.control-group:has(#threshold){grid-column:2}.capital-control{grid-row:3;grid-column:1}.run-control{grid-row:3;grid-column:2;padding-top:23px}.control-hint{font-size:8px;line-height:1.5}.field-label{font-size:8px;letter-spacing:.5px}.data-control>.text-button{font-size:9px}.section-caption{margin-bottom:12px;gap:8px}.section-caption>div{flex-wrap:wrap;gap:7px}.section-caption strong{font-size:8px;letter-spacing:.6px}.section-caption #test-window{font-size:9px}.metric-grid{grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}.metric-card{padding:15px;min-height:126px}.metric-number{font-size:29px;margin-top:10px}.metric-label{font-size:10px}.metric-icon{font-size:15px}.metric-note{font-size:8px;line-height:1.5}.main-grid{grid-template-columns:1fr;margin-bottom:14px}.panel{padding:18px}.panel-head{gap:10px}.performance-panel h2{font-size:14px}.performance-panel .eyebrow{font-size:7px;letter-spacing:1px}.chart-total{font-size:26px}.chart-summary{margin-top:21px}.chart-legend{font-size:8px;gap:13px}.chart-wrap{min-height:0;margin-top:15px;margin-bottom:7px}.chart-wrap svg text{font-size:11px}.chart-footer{font-size:7px}.signal-panel{display:grid;grid-template-columns:125px 1fr;gap:0 18px;align-items:center;padding:21px 18px}.signal-panel .panel-head{grid-column:1 / -1;margin-bottom:18px}.signal-panel .panel-head h2{font-size:16px}.signal-panel .signal-score{grid-column:1;grid-row:2 / span 4;padding:0}.signal-action{grid-column:2;grid-row:2;align-items:center;margin-bottom:11px;gap:8px}.signal-action .muted{font-size:8px}.signal-pill{font-size:7px;padding:3px 5px;letter-spacing:.5px}.allocation-row{grid-column:2;grid-row:3;font-size:9px}.allocation-track{grid-column:2;grid-row:4;margin:8px 0}.signal-details{grid-column:2;grid-row:5;font-size:8px}.signal-panel>.small-note{grid-column:1 / -1;margin:18px 0 13px;font-size:9px}.signal-panel>.button{grid-column:1 / -1}.probability-ring{height:120px;width:120px}.probability-ring>div{height:110px;width:110px}.research-grid{gap:14px;margin-bottom:14px}.models-panel>.panel-head{align-items:flex-start}.models-panel>.panel-head h2{font-size:15px}.subtle-chip{font-size:7px;padding:4px 5px}.model-cards{gap:8px;margin-top:20px}.model-card{padding:12px 9px}.model-card h3{font-size:10px;min-height:30px}.model-description{font-size:8px}.model-weight{font-size:20px}.model-weight>small{font-size:7px;margin-left:3px}.model-stat{font-size:7px;gap:3px}.model-stat span{max-width:55px}.panel-footnote{font-size:8px;margin-top:15px}.feature-list{grid-template-columns:1fr;gap:15px}.feature-row{grid-template-columns:1.2fr 1fr 40px;gap:15px}.feature-name,.feature-value{font-size:10px}.timeline-panel{margin-bottom:14px}.split-track{height:34px;margin-top:20px}.split-track>div{font-size:7px;padding:8px;letter-spacing:.5px}.split-track>div strong{display:none}.split-labels{gap:8px;font-size:7px;grid-template-columns:1.4fr 1fr 1fr}.split-labels strong{font-size:8px;line-height:1.7}.audit-list{display:grid;grid-template-columns:1fr 1fr;gap:11px}.audit-item{font-size:8px;gap:5px;line-height:1.4}.trades-panel>.panel-head{display:block}.export-buttons{justify-content:flex-start;margin-top:16px;gap:8px}.export-buttons>.button{font-size:9px}.trade-summary{flex-wrap:wrap;gap:7px 17px;font-size:9px;margin-top:17px}.trade-summary>.muted{width:100%;margin-left:0;font-size:8px}.table-scroll{margin:0 -18px}.site-footer{flex-wrap:wrap;gap:10px 18px;margin-top:28px;padding:24px 0;font-size:8px}.site-footer>span{width:100%;margin-left:0}.site-footer p{margin-left:auto}.footer-brand{font-size:15px}.notes-heading{padding-top:8px;padding-bottom:23px}.notes-heading h2{font-size:29px;margin-bottom:14px}.notes-heading>p{font-size:12px;line-height:1.8}.notes-grid{grid-template-columns:1fr;gap:14px}.note-card{display:grid;grid-template-columns:24px 1fr;gap:0 13px}.step-number{grid-column:1;grid-row:1;padding-top:1px}.note-card h3{grid-column:2;margin:0 0 9px;font-size:15px}.note-card p{grid-column:2;font-size:11px;margin-top:8px}.explain-panel{padding:23px 20px;margin-top:14px}.explain-panel h3{font-size:19px;line-height:1.5;margin:12px 0}.explain-panel>p{font-size:12px;line-height:1.9}.definitions-grid{gap:14px;margin-top:14px}.definitions-grid h3{font-size:17px}.definitions>div{grid-template-columns:95px 1fr;gap:12px;font-size:10px}.limitations>p{font-size:11px}.data-grid{gap:14px}.data-grid h3{font-size:18px}.data-grid p{font-size:11px}.code-example{padding:13px}.code-example pre{font-size:9px}.data-actions{gap:10px}.data-actions>.button{font-size:10px}.data-actions>.text-button{margin-top:4px}.data-requirements{gap:25px;font-size:9px}.data-requirements strong{font-size:16px}.privacy-panel{grid-template-columns:1fr;gap:22px;margin-top:14px}.privacy-panel>div:first-child{padding-left:38px}.privacy-panel>div+div{padding-top:21px;border-top:1px solid var(--border)}.privacy-panel p{font-size:10px}.error-banner{font-size:11px;padding:13px}.staged-notice{font-size:10px}}
+.competition-note{padding:15px 18px;border:1px solid #8dc9ee40;background:#8dc9ee08;border-radius:6px;margin-bottom:22px}.competition-note>div{display:flex;align-items:center;gap:12px;margin-bottom:6px;font-size:11px}.competition-note strong{color:var(--blue);font-weight:600}.competition-note>div>span{color:var(--ink)}.competition-note p{font-size:10px;color:var(--muted);line-height:1.8}.competition-note code{font-size:9px}.source-block{max-width:320px}.source-block>span:last-child{overflow-wrap:anywhere;text-align:right}
+@media(max-width:650px){.competition-note{padding:13px 14px;margin-bottom:20px}.competition-note>div{flex-direction:column;align-items:flex-start;gap:3px;font-size:10px;margin-bottom:8px}.competition-note p{font-size:9px;line-height:1.8}.source-block>span:last-child{text-align:left}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+</style>
+  
+  
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to experiment</a>
+  <header class="site-header">
+    <a class="brand" href="#overview" aria-label="Signal Lab overview"><span class="brand-symbol" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Signal<span class="brand-light">Lab</span><span class="brand-dot">.</span></a>
+    <nav aria-label="Main navigation" class="nav-tabs">
+      <button class="nav-tab active" data-tab="overview" aria-current="page">Overview</button>
+      <button class="nav-tab" data-tab="notes">Model notes</button>
+      <button class="nav-tab" data-tab="data">Data &amp; rules</button>
+    </nav>
+    <div class="header-meta"><span class="local-dot" aria-hidden="true"></span> Runs on your device <span class="version">v1.0</span></div>
+  </header>
+
+  <main id="main">
+    <div class="page-top">
+      <div><div class="eyebrow"><span class="eyebrow-line"></span> THE QUANT RESEARCH DESK</div><h1>Test the idea.<br class="mobile-break"> <span>Trust the process.</span></h1><p class="intro">Three models. One transparent signal. A fair test on data they haven't seen.</p></div>
+      <div class="source-block"><span id="source-badge" class="badge synthetic"><span aria-hidden="true">◈</span> SYNTHETIC DEMO</span><span id="source-detail">Preparing a reproducible experiment</span></div>
+    </div>
+
+    <aside class="competition-note" aria-label="Competition submission information"><div><strong>Research playground</strong><span>Submission files are in the competition kit.</span></div><p>This browser demo uses its own long/cash strategy and 60/20/20 time split. The event requires a prior-day OHLCV model returning a number from −1 to 1, trained on 2015–2022 data and practiced on 2023. Use the separate <code>.pkl</code> and <code>.ipynb</code> submission files.</p></aside>
+
+    <div id="error-banner" class="error-banner" role="alert" hidden><span class="error-icon" aria-hidden="true">!</span><div><strong>We couldn't run that experiment.</strong><p id="error-text"></p></div><button id="dismiss-error" class="icon-button" aria-label="Dismiss error">×</button></div>
+
+    <section class="experiment-bar" aria-label="Experiment controls">
+      <div class="data-control"><label for="csv-file" class="field-label">01 / DATA SOURCE</label><button id="upload-button" class="button secondary upload-button"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 13V3m-4 4 4-4 4 4M4 12v5h12v-5"/></svg>Upload CSV</button><input id="csv-file" type="file" accept=".csv,text/csv" hidden><button id="use-demo" class="text-button">Use demo data</button></div>
+      <div class="control-group"><label class="field-label" for="threshold">02 / BUY THRESHOLD <output id="threshold-value" for="threshold">55%</output></label><input id="threshold" type="range" min="0.50" max="0.70" step="0.01" value="0.55"><span class="control-hint">Minimum uncalibrated model up-score</span></div>
+      <div class="control-group compact-control"><label class="field-label" for="fees">FEES <span class="unit">bps / side</span></label><input id="fees" type="number" min="0" max="100" step="1" value="10"><span class="control-hint">10 bps = 0.10%</span></div>
+      <div class="control-group compact-control"><label class="field-label" for="exposure">MAX EXPOSURE</label><select id="exposure"><option value="0.25">25%</option><option value="0.5">50%</option><option value="0.75">75%</option><option value="1" selected>100%</option></select><span class="control-hint">Capital allocation limit</span></div>
+      <div class="control-group capital-control"><label class="field-label" for="capital">STARTING CAPITAL</label><div class="money-input"><span>$</span><input id="capital" type="number" min="100" max="1000000000" step="100" value="10000"></div><span class="control-hint">Simulated funds</span></div>
+      <div class="run-control"><button id="run-button" class="button primary"><span id="run-text">Run experiment</span><span aria-hidden="true">↗</span></button><span id="run-state" class="run-state" role="status" aria-live="polite">Preparing models…</span></div>
+    </section>
+    <div id="staged-notice" class="staged-notice" hidden></div>
+
+    <section id="section-overview" class="tab-panel" aria-label="Experiment overview">
+      <div class="section-caption"><div><span class="status-dot" aria-hidden="true"></span><strong>OUT-OF-SAMPLE RESULTS</strong><span id="test-window">Waiting for experiment</span></div><span class="muted">Long / cash · one stock · daily bars required</span></div>
+      <div class="metric-grid" id="metrics-grid">
+        <article class="metric-card"><div class="metric-label">Strategy return <span class="metric-icon" aria-hidden="true">↗</span></div><div id="metric-return" class="metric-number">—</div><div id="metric-return-note" class="metric-note">Test period, after fees</div></article>
+        <article class="metric-card"><div class="metric-label">Max drawdown <span class="metric-icon" aria-hidden="true">⌁</span></div><div id="metric-drawdown" class="metric-number">—</div><div class="metric-note">Largest drop from a previous high</div></article>
+        <article class="metric-card"><div class="metric-label">Sharpe ratio <span class="metric-icon" aria-hidden="true">∿</span></div><div id="metric-sharpe" class="metric-number">—</div><div class="metric-note">Return relative to volatility · 252 bars/year</div></article>
+        <article class="metric-card"><div class="metric-label">Direction accuracy <span class="metric-icon" aria-hidden="true">◎</span></div><div id="metric-accuracy" class="metric-number">—</div><div id="metric-accuracy-note" class="metric-note">Up/down predictions on the test window</div></article>
+      </div>
+
+      <div class="main-grid">
+        <article class="panel performance-panel">
+          <div class="panel-head"><div><div class="eyebrow small">THE FINAL EXAM</div><h2>How did the strategy hold up?</h2></div><div class="segmented" aria-label="Chart view"><button class="selected" id="equity-view" aria-pressed="true">Equity</button><button id="drawdown-view" aria-pressed="false">Drawdown</button></div></div>
+          <div class="chart-summary"><div><span id="ending-equity" class="chart-total">—</span><span class="chart-total-label"> simulated ending value</span></div><div class="chart-legend"><span><i class="legend-dot strategy"></i> Signal Lab</span><span><i class="legend-dot baseline"></i> Buy &amp; hold</span></div></div>
+          <div id="chart-wrap" class="chart-wrap"><svg id="equity-chart" role="img" aria-label="Equity chart will appear after the experiment runs" viewBox="0 0 900 285" tabindex="0"></svg><div id="chart-tooltip" class="chart-tooltip" hidden></div><p id="chart-empty" class="chart-empty">Training the ensemble and testing its predictions…</p></div>
+          <div class="chart-footer"><span><span class="legend-dot baseline"></span> Same test dates, starting funds &amp; fee rate</span><span>Hover to inspect <span aria-hidden="true">↔</span> arrow keys supported</span></div>
+        </article>
+
+        <aside class="panel signal-panel">
+          <div class="panel-head"><div><div class="eyebrow small">WHAT THE MODELS SEE</div><h2>Next-open proposal</h2></div><span class="signal-mark" aria-hidden="true">↗</span></div>
+          <div class="signal-score"><div id="probability-ring" class="probability-ring"><div><span id="signal-probability">—</span><small>uncalibrated up-score</small></div></div></div>
+          <div class="signal-action"><span id="signal-action" class="signal-pill">Awaiting result</span><span id="signal-date" class="muted">—</span></div>
+          <div class="allocation-row"><span>Proposed stock allocation</span><strong id="signal-allocation">—</strong></div><div class="allocation-track"><span id="allocation-fill"></span></div>
+          <dl class="signal-details"><div><dt>Model disagreement</dt><dd id="signal-disagreement">—</dd></div><div><dt>Estimated annual volatility</dt><dd id="signal-volatility">—</dd></div></dl>
+          <p class="small-note">An uncalibrated model score, not a verified success rate. The allocation is a hypothesis for the next open; no live order is placed.</p>
+          <button id="export-signal" class="button secondary full-width" disabled>Export signal JSON <span aria-hidden="true">↓</span></button>
+        </aside>
+      </div>
+
+      <div class="research-grid">
+        <article class="panel models-panel"><div class="panel-head"><div><div class="eyebrow small">DIFFERENT WAYS TO FIND A PATTERN</div><h2>A three-model ensemble</h2></div><span class="subtle-chip">Validation weighted</span></div><div id="model-cards" class="model-cards"><p class="muted">Model details appear after the first run.</p></div><p class="panel-footnote">Weights favor lower validation Brier error. The final test window is never used to select the weights.</p></article>
+        <article class="panel feature-panel"><div class="panel-head"><div><div class="eyebrow small">LOOK INSIDE</div><h2>What moves the prediction?</h2></div></div><div id="feature-list" class="feature-list"><p class="muted">Waiting for trained coefficients.</p></div><p class="panel-footnote">Logistic model coefficients on standardized features. Positive means a higher predicted up probability; these are associations, not causes.</p></article>
+      </div>
+
+      <article class="panel timeline-panel"><div class="panel-head"><div><div class="eyebrow small">TIME ONLY MOVES FORWARD</div><h2>A fairer way to test</h2></div><span id="row-count" class="subtle-chip">— observations</span></div><div class="split-track"><div class="train-segment">TRAIN <strong>60%</strong></div><div class="validation-segment">VALIDATE <strong>20%</strong></div><div class="test-segment">TEST <strong>20%</strong></div></div><div id="split-labels" class="split-labels"></div><div id="audit-list" class="audit-list"></div><p class="panel-footnote">This research split is separate from the event's 2015–2022 training / 2023 practice windows. Here, features use data through the signal close, decisions fill at the next open, and the return runs to the following open. Models refit every 20 bars using only labels known at that time.</p></article>
+
+      <article class="panel trades-panel"><div class="panel-head"><div><div class="eyebrow small">FOLLOW THE DECISIONS</div><h2>Test-window decision log</h2></div><div class="export-buttons"><button id="export-predictions" class="button small-button secondary" disabled>Predictions CSV <span aria-hidden="true">↓</span></button><button id="export-report" class="button small-button secondary" disabled>Full report JSON <span aria-hidden="true">↓</span></button></div></div><div class="trade-summary"><span id="trade-count">— allocation changes</span><span id="average-exposure">— average stock exposure</span><span class="muted">Most recent 20 changes</span></div><div class="table-scroll"><table><caption class="sr-only">Recent simulated allocation changes in the final test period</caption><thead><tr><th>Signal close</th><th>Fill at open</th><th>Action</th><th class="numeric">Stock weight</th><th class="numeric">P(up)</th><th class="numeric">Period return</th><th class="numeric">Equity</th></tr></thead><tbody id="trade-rows"><tr><td colspan="7" class="empty-row">Run an experiment to inspect the decision log.</td></tr></tbody></table></div><p class="panel-footnote">Returns shown follow the engine's logged holding interval and include its allocated costs. Export every prediction to inspect all test bars.</p></article>
+    </section>
+
+    <section id="section-notes" class="tab-panel" aria-label="Model notes" hidden>
+      <div class="notes-heading"><div class="eyebrow">UNDERSTAND WHAT YOU BUILT</div><h2>Make the explanation<br><span>as strong as the demo.</span></h2><p>The presentation counts for 50% of the competition score. Use this playground to understand models and testing; present the actual competition notebook, submitted model, and its measured results. The browser experiment below tests its own next-open-to-open hypothesis.</p></div>
+      <div class="notes-grid"><article class="panel note-card"><span class="step-number">01</span><h3>Turn prices into clues</h3><p>Historical price and volume behavior becomes numerical inputs, called features. Each feature uses information available by the signal day's close.</p><p>The target is whether the next open-to-open return will be positive. Predicting a direction is different from predicting an exact dollar price.</p></article><article class="panel note-card"><span class="step-number">02</span><h3>Ask three different models</h3><p><strong>Logistic regression</strong> learns a weighted combination of clues. A <strong>bootstrap forest</strong> combines decision trees that learn different rules. <strong>Nearest neighbors</strong> looks for similar historical situations.</p><p>The ensemble averages their uncalibrated up-scores, giving more weight to models with lower Brier error on validation data. These scores are not verified real-world success rates.</p></article><article class="panel note-card"><span class="step-number">03</span><h3>Turn a forecast into a position</h3><p>If the model up-score passes your buy threshold, the strategy can hold stock. Otherwise, it holds cash. Volatility targeting can reduce stock exposure, conviction scales it, and your maximum exposure caps it.</p><p>Fees are charged when stock exposure changes. A confident prediction can still be wrong.</p></article><article class="panel note-card"><span class="step-number">04</span><h3>Keep the final exam honest</h3><p>The first portion of history trains the models; the next selects ensemble weights. The last portion measures performance. Updates during the test can use newly known past outcomes, never future answers.</p><p>Repeatedly changing settings after seeing the test result turns that period into development data. A new, untouched test is then needed.</p></article></div>
+      <article class="panel explain-panel"><div class="eyebrow small">WHAT TO EXPLAIN TO THE JUDGES · 50% OF THE SCORE</div><h3>The idea, the test, and what the result actually means.</h3><p>For the submitted model, explain how the previous day's Open, High, Low, Close, and Volume become a scalar action from −1 to 1. Describe training on 2015–2022, then the 2023 practice evaluation. Explain the actual model and its decision rule, show its measured comparison with a baseline, and identify a limitation or failure case. Use the separate competition notebook for that evidence.</p><p class="small-note">The three-model browser experiment has a different interface, feature history, allocation rule, and time split. Its screenshots and synthetic returns are learning aids, not submission results.</p></article>
+      <div class="definitions-grid"><article class="panel"><h3>The numbers, in plain English</h3><dl class="definitions"><div><dt>Return</dt><dd>The percentage change in simulated account value, after modeled fees.</dd></div><div><dt>Drawdown</dt><dd>How far the account fell from its previous highest value.</dd></div><div><dt>Sharpe ratio</dt><dd>Average bar return divided by its volatility, scaled using 252 bars per year. Cash return is assumed zero.</dd></div><div><dt>Direction accuracy</dt><dd>How often the predicted up/down direction matched the outcome. It does not measure profit.</dd></div><div><dt>Brier error</dt><dd>Average squared error of a probability forecast. Lower is better.</dd></div><div><dt>Basis point</dt><dd>One hundredth of a percentage point. A 10 bps charge is 0.10% per transaction side.</dd></div></dl></article><article class="panel limitations"><h3>What this experiment leaves out</h3><p>One stock, long or cash. No leverage, shorting, live feeds, or broker connection. It does not model taxes, dividends, market impact, slippage, or an order book.</p><p>Historical prices can contain gaps, corporate-action adjustments, and survivorship bias. Use consistently split-adjusted OHLC data. Daily bars are required, with 252 bars per year assumed for annualization. Intraday timestamps normalize to a date, and duplicate dates are rejected.</p><p>Small datasets, changing market conditions, and luck can all make a strategy look stronger than it is. A short competition score is limited evidence.</p><a href="#data" class="inline-link" data-go-tab="data">Check data and competition requirements <span aria-hidden="true">↗</span></a></article></div>
+    </section>
+
+    <section id="section-data" class="tab-panel" aria-label="Data and competition rules" hidden>
+      <div class="notes-heading"><div class="eyebrow">BRING YOUR OWN EVIDENCE</div><h2>Your data.<br><span>Your device. Your experiment.</span></h2><p>Import one stock's historical OHLCV bars. All parsing, training, backtesting, and exports happen in this browser. The app sends no data to a server.</p></div>
+      <div class="data-grid"><article class="panel data-import"><div class="eyebrow small">CSV INPUT</div><h3>A simple format, ready to use.</h3><p>Use a header row with <code>Date, Open, High, Low, Close, Volume</code>. Date, Open, and Close are required. Missing High/Low values are approximated from Open/Close; missing Volume becomes zero. These substitutions produce warnings. Use numeric prices, daily bars, consistent split adjustments, and a single stock per file.</p><div class="code-example" role="region" aria-label="CSV format example" tabindex="0"><pre>Date,Open,High,Low,Close,Volume
+2024-01-02,100,102,99,101,1200000
+2024-01-03,101,103,100,102,1350000
+2024-01-04,102,104,101,103,1280000</pre></div><div class="data-actions"><button id="data-upload-button" class="button primary">Choose a CSV <span aria-hidden="true">↗</span></button><button id="download-data" class="button secondary">Download loaded data <span aria-hidden="true">↓</span></button><button id="download-template" class="text-button">Download format template</button></div><p class="small-note" style="margin-top:13px">The three-row format template illustrates the columns. Add at least 180 actual daily rows before running it.</p><div class="data-requirements"><span><strong>180–5,000</strong> data rows</span><span><strong>One</strong> stock per file</span><span><strong>Daily</strong> bars required</span></div><div id="data-status" class="data-status">Synthetic demo data is loaded.</div></article><article class="panel competition-panel"><div class="eyebrow small">THE EVENT'S SUBMISSION CONTRACT</div><h3>Use the competition kit to submit.</h3><p>The browser is a research playground. Its CSV/JSON exports are diagnostics, not the required submission artifacts. The separate Python kit follows the competition interface.</p><ul class="rule-list"><li><span>01</span><div><strong>Train: 2015–2022. Practice: 2023.</strong><p>Use the provided historical training window, then evaluate on the designated practice year. This dashboard's 60/20/20 split is separate.</p></div></li><li><span>02</span><div><strong>Previous-day OHLCV → scalar −1 to 1.</strong><p>The competition input is the previous day's Open, High, Low, Close, and Volume. The model returns one bounded numerical signal.</p></div></li><li><span>03</span><div><strong>Submit a .pkl model and an .ipynb notebook.</strong><p>Build and validate those files in the competition kit. This dashboard remains long/cash; any short signal support belongs to the submitted Python model.</p></div></li><li><span>04</span><div><strong>The presentation counts for 50%.</strong><p>Explain the submitted model, data timing, practice results, and limitations. Use actual measurements, not synthetic-demo scores.</p></div></li></ul></article></div>
+      <article class="panel privacy-panel"><div><span class="privacy-icon" aria-hidden="true">⌘</span><h3>Local by design.</h3><p>No account. No upload server. No external libraries. Reloading resets the app; download reports to keep an experiment.</p></div><div><span class="badge synthetic">◈ SYNTHETIC DEMO</span><p>The built-in data is generated for demonstrating the workflow. Its results are not evidence of real stock-prediction skill. The same seed reproduces the same demo.</p></div></article>
+    </section>
+
+    <footer class="site-footer"><div class="brand footer-brand">Signal<span class="brand-light">Lab</span><span class="brand-dot">.</span></div><p>A research prototype for learning and simulation.</p><span>No live data. No real trades.</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+<script>
+/* Signal Lab: dependency-free, chronological educational research engine. */
+(function (root, factory) {
+  if (typeof module === 'object' && module.exports) module.exports = factory();
+  else root.SignalEngine = factory();
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const YEAR = 252, LOOKBACK = 20;
+  const DEFAULTS = { initialCapital: 10000, feeBps: 10, threshold: .55, maxExposure: 1,
+    targetVol: .15, trainFraction: .6, validationFraction: .2, retrainEvery: 20,
+    sourceName: 'Uploaded CSV', synthetic: false };
+  const FEATURE_INFO = [
+    ['1-day return', 'Latest close divided by the previous close, minus one.'],
+    ['5-day return', 'Latest close divided by the close five sessions earlier, minus one.'],
+    ['10-day return', 'Latest close divided by the close ten sessions earlier, minus one.'],
+    ['20-day trend', 'Latest close relative to the trailing 20-session average.'],
+    ['20-day volatility', 'Standard deviation of the last 20 daily close returns; daily units.'],
+    ['Daily range', 'Today\'s high minus low, divided by today\'s close.'],
+    ['Opening gap', 'Today\'s open relative to the previous close.'],
+    ['Intraday return', 'Today\'s close relative to today\'s open.'],
+    ['Relative volume', 'Today\'s volume relative to its trailing 20-session average; zero when unavailable.']
+  ];
+  const clamp = (x, lo, hi) => Math.max(lo, Math.min(hi, x));
+  const mean = a => a.reduce((s, x) => s + x, 0) / (a.length || 1);
+  function deviation(a) { const m = mean(a); return Math.sqrt(a.reduce((s,x) => s+(x-m)*(x-m),0) / Math.max(1,a.length-1)); }
+  function random(seed) { let n = seed >>> 0; return () => { n += 0x6D2B79F5; let t = n; t = Math.imul(t ^ t >>> 15,t | 1); t ^= t + Math.imul(t ^ t >>> 7,t | 61); return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+  function canonicalDate(value) {
+    const s = String(value).trim();
+    let y,m,d, hit = /^(\d{4})-(\d{1,2})-(\d{1,2})(?:T(?:[01]\d|2[0-3]):[0-5]\d(?::[0-5]\d(?:\.\d+)?)?(?:Z|[+-](?:[01]\d|2[0-3]):?[0-5]\d)?)?$/.exec(s);
+    if (hit) { y=+hit[1]; m=+hit[2]; d=+hit[3]; }
+    else { hit = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(s); if (hit) { y=+hit[3]; m=+hit[1]; d=+hit[2]; } }
+    if (!hit || y < 1900 || y > 2200) throw new Error('Invalid date "'+s+'". Use YYYY-MM-DD or M/D/YYYY.');
+    const t = new Date(Date.UTC(y,m-1,d));
+    if (t.getUTCFullYear()!==y || t.getUTCMonth()!==m-1 || t.getUTCDate()!==d) throw new Error('Invalid calendar date "'+s+'".');
+    return t.toISOString().slice(0,10);
+  }
+  function normalizeBars(input) {
+    if (!Array.isArray(input) || input.length < 180) throw new Error('At least 180 daily price rows are required.');
+    if (input.length > 5000) throw new Error('Use at most 5,000 daily rows for this browser demo.');
+    const dates=new Set(), warnings=[];
+    const bars=input.map((b,i) => {
+      const date=canonicalDate(b.date), open=Number(b.open), close=Number(b.close);
+      if (dates.has(date)) throw new Error('Duplicate date '+date+'. Supply one stock with one row per date.');
+      dates.add(date);
+      if (!(open>0 && close>0 && Number.isFinite(open) && Number.isFinite(close))) throw new Error('Row '+(i+1)+': Open and Close must be finite positive prices.');
+      const high=b.high==null || b.high==='' ? Math.max(open,close) : Number(b.high);
+      const low=b.low==null || b.low==='' ? Math.min(open,close) : Number(b.low);
+      const volume=b.volume==null || b.volume==='' ? 0 : Number(b.volume);
+      if (![high,low,volume].every(Number.isFinite) || low<=0 || high<Math.max(open,close) || low>Math.min(open,close) || volume<0) throw new Error('Row '+(i+1)+': invalid High, Low, or Volume. High/Low must contain Open and Close.');
+      return {date,open,high,low,close,volume};
+    });
+    if (bars.some((b,i)=>i && b.date<bars[i-1].date)) { bars.sort((a,b)=>a.date.localeCompare(b.date)); warnings.push('Dates were not chronological. Rows have been sorted from oldest to newest.'); }
+    return {bars,warnings};
+  }
+  function csvRows(text) {
+    const rows=[]; let row=[],cell='',quoted=false;
+    for(let i=0;i<text.length;i++) {
+      const c=text[i];
+      if(c==='"') { if(quoted && text[i+1]==='"') {cell+='"';i++;} else if(quoted || cell==='') quoted=!quoted; else throw new Error('Malformed CSV quotation.'); }
+      else if(c===',' && !quoted) {row.push(cell);cell='';}
+      else if((c==='\n'||c==='\r') && !quoted) { if(c==='\r'&&text[i+1]==='\n')i++; row.push(cell); if(row.some(v=>v.trim()!==''))rows.push(row); row=[];cell=''; }
+      else cell+=c;
+    }
+    if(quoted)throw new Error('CSV contains an unclosed quotation.');
+    row.push(cell); if(row.some(v=>v.trim()!==''))rows.push(row);
+    return rows;
+  }
+  function parseCSV(text) {
+    if(typeof text!=='string'||!text.trim())throw new Error('The CSV is empty.');
+    if(/^\s*</.test(text))throw new Error('This looks like HTML. Export a price table as CSV.');
+    const rows=csvRows(text.replace(/^\uFEFF/,''));
+    if(!rows.length)throw new Error('The CSV is empty.');
+    const header=rows.shift().map(s=>s.trim().toLowerCase());
+    if(header.some(s=>s===''))throw new Error('CSV column names must not be empty.');
+    if(new Set(header).size!==header.length)throw new Error('CSV column names must be unique.');
+    for(const key of ['date','open','close'])if(!header.includes(key))throw new Error('Missing required column: '+key+'. Required: Date, Open, Close.');
+    const index=Object.fromEntries(header.map((v,i)=>[v,i]));
+    const symbols=new Set(); let missingRange=false,missingVolume=false;
+    const input=rows.map((r,i)=>{
+      if(r.length!==header.length)throw new Error('CSV line '+(i+2)+' has '+r.length+' fields; expected '+header.length+'.');
+      const rowSymbols=[];
+      for(const key of ['symbol','ticker'])if(index[key]!==undefined){
+        const symbol=r[index[key]].trim().toUpperCase();
+        if(!symbol)throw new Error('CSV line '+(i+2)+': '+key+' must not be empty when its column is present.');
+        rowSymbols.push(symbol);symbols.add(symbol);
+      }
+      if(rowSymbols.length===2&&rowSymbols[0]!==rowSymbols[1])throw new Error('CSV line '+(i+2)+': Symbol and Ticker disagree. Upload one stock at a time.');
+      const b={date:r[index.date],open:r[index.open].trim(),close:r[index.close].trim()};
+      for(const k of ['high','low','volume']) { const v=index[k]===undefined?'':r[index[k]].trim(); b[k]=v; if(v==='') {if(k==='volume')missingVolume=true;else missingRange=true;} }
+      return b;
+    });
+    if(symbols.size>1)throw new Error('Multiple tickers found. Upload one stock at a time.');
+    const result=normalizeBars(input);
+    if(missingRange)result.warnings.push('Missing High/Low values were filled from Open and Close; the range feature is approximate.');
+    if(missingVolume)result.warnings.push('Missing Volume values were set to zero; relative volume is unavailable or incomplete.');
+    return result;
+  }
+  function generateDemo(seed=42, days=760) {
+    if(!Number.isInteger(days)||days<180||days>5000)throw new Error('Demo length must be an integer from 180 to 5,000.');
+    if(!Number.isFinite(seed))throw new Error('Demo seed must be finite.');
+    const rng=random(seed), gaussian=()=>Math.sqrt(-2*Math.log(Math.max(1e-12,rng())))*Math.cos(2*Math.PI*rng());
+    const bars=[]; let close=100, date=new Date(Date.UTC(2022,0,3));
+    for(let i=0;i<days;i++) {
+      while(date.getUTCDay()===0 || date.getUTCDay()===6)date.setUTCDate(date.getUTCDate()+1);
+      const open=close*Math.exp(gaussian()*.004), daily=gaussian()*.012+.0002;
+      close=open*Math.exp(daily);
+      const high=Math.max(open,close)*Math.exp(Math.abs(gaussian())*.005);
+      const low=Math.min(open,close)*Math.exp(-Math.abs(gaussian())*.005);
+      bars.push({date:date.toISOString().slice(0,10),open,high,low,close,volume:Math.round(900000*Math.exp(gaussian()*.3))});
+      date.setUTCDate(date.getUTCDate()+1);
+    }
+    return bars;
+  }
+  function featuresAt(bars,i) {
+    const b=bars[i], closes=bars.slice(i-19,i+1).map(x=>x.close), volumes=bars.slice(i-19,i+1).map(x=>x.volume);
+    const returns=[]; for(let k=i-19;k<=i;k++)returns.push(bars[k].close/bars[k-1].close-1);
+    const vol=deviation(returns), avgVolume=mean(volumes);
+    return {i,x:[b.close/bars[i-1].close-1,b.close/bars[i-5].close-1,b.close/bars[i-10].close-1,b.close/mean(closes)-1,vol,(b.high-b.low)/b.close,b.open/bars[i-1].close-1,b.close/b.open-1,avgVolume>0?b.volume/avgVolume-1:0],volatility:vol*Math.sqrt(YEAR)};
+  }
+  function fitScaler(rows) {
+    const d=FEATURE_INFO.length,mu=Array(d).fill(0),sd=Array(d).fill(0);
+    for(const r of rows)for(let j=0;j<d;j++)mu[j]+=r.x[j]/rows.length;
+    for(const r of rows)for(let j=0;j<d;j++)sd[j]+=(r.x[j]-mu[j])**2/rows.length;
+    for(let j=0;j<d;j++)sd[j]=Math.sqrt(sd[j])||1;
+    return {mu,sd,transform:x=>x.map((v,j)=>clamp((v-mu[j])/sd[j],-12,12))};
+  }
+  const sigmoid=z=>1/(1+Math.exp(-clamp(z,-30,30)));
+  function fitLogistic(xs,ys) {
+    const d=xs[0].length,w=Array(d).fill(0); let intercept=Math.log((ys.reduce((a,b)=>a+b,0)+1)/(ys.length-ys.reduce((a,b)=>a+b,0)+1));
+    for(let epoch=0;epoch<150;epoch++) {
+      const g=Array(d).fill(0); let gb=0;
+      for(let i=0;i<xs.length;i++) { let z=intercept;for(let j=0;j<d;j++)z+=w[j]*xs[i][j];const error=sigmoid(z)-ys[i];gb+=error;for(let j=0;j<d;j++)g[j]+=error*xs[i][j]; }
+      intercept-=.12*gb/xs.length;
+      for(let j=0;j<d;j++)w[j]-=.12*(g[j]/xs.length+.035*w[j]);
+    }
+    return {coefficients:w,predict:x=>sigmoid(intercept+w.reduce((s,v,j)=>s+v*x[j],0))};
+  }
+  function fitForest(xs,ys,seed) {
+    const rng=random(seed),d=xs[0].length,minLeaf=7;
+    function tree(ids,depth) {
+      const count=ids.reduce((s,i)=>s+ys[i],0),probability=(count+1)/(ids.length+2);
+      if(depth>=4||ids.length<minLeaf*2||count===0||count===ids.length)return {probability};
+      let best=null,bestLoss=Infinity;
+      const candidates=[];while(candidates.length<3){const f=Math.floor(rng()*d);if(!candidates.includes(f))candidates.push(f);}
+      for(const f of candidates)for(let trial=0;trial<5;trial++) {
+        const threshold=xs[ids[Math.floor(rng()*ids.length)]][f];let ln=0,ly=0,rn=0,ry=0;
+        for(const i of ids) {if(xs[i][f]<=threshold){ln++;ly+=ys[i];}else{rn++;ry+=ys[i];}}
+        if(ln<minLeaf||rn<minLeaf)continue;
+        const loss=ly*(1-ly/ln)+ry*(1-ry/rn);
+        if(loss<bestLoss){bestLoss=loss;best={f,threshold};}
+      }
+      if(!best)return {probability};
+      const left=[],right=[];for(const i of ids)(xs[i][best.f]<=best.threshold?left:right).push(i);
+      return {f:best.f,threshold:best.threshold,left:tree(left,depth+1),right:tree(right,depth+1),probability};
+    }
+    const trees=[];for(let t=0;t<17;t++){const ids=[];for(let j=0;j<Math.min(480,xs.length);j++)ids.push(Math.floor(rng()*xs.length));trees.push(tree(ids,0));}
+    return {predict:x=>mean(trees.map(node=>{while(node.left)node=x[node.f]<=node.threshold?node.left:node.right;return node.probability;}))};
+  }
+  function fitKNN(xs,ys) {
+    const k=Math.min(25,Math.max(7,Math.round(Math.sqrt(xs.length))));
+    return {predict:x=>{const nearest=[];for(let i=0;i<xs.length;i++){let distance=0;for(let j=0;j<x.length;j++)distance+=(x[j]-xs[i][j])**2;if(nearest.length<k||distance<nearest[nearest.length-1][0]){let at=nearest.length;while(at>0&&nearest[at-1][0]>distance)at--;nearest.splice(at,0,[distance,ys[i]]);if(nearest.length>k)nearest.pop();}}let numerator=1,denominator=2;for(const [distance,y] of nearest){const weight=1/(.3+Math.sqrt(distance));numerator+=weight*y;denominator+=weight;}return numerator/denominator;}};
+  }
+  function fitModels(rows,seed) {
+    const scaler=fitScaler(rows),xs=rows.map(r=>scaler.transform(r.x)),ys=rows.map(r=>r.y);
+    const models=[fitLogistic(xs,ys),fitForest(xs,ys,seed),fitKNN(xs,ys)];
+    return {scaler,models,predict:x=>{const z=scaler.transform(x);return models.map(m=>m.predict(z));}};
+  }
+  function validateOptions(opts) {
+    const o=Object.assign({},DEFAULTS,opts);
+    for(const key of ['initialCapital','feeBps','threshold','maxExposure','targetVol','trainFraction','validationFraction','retrainEvery'])if(typeof o[key]!=='number'||!Number.isFinite(o[key]))throw new Error(key+' must be a finite number.');
+    if(o.initialCapital<=0||o.initialCapital>1e12)throw new Error('Initial capital must be positive and at most 1 trillion.');
+    if(o.feeBps<0||o.feeBps>100)throw new Error('One-way costs must be between 0 and 100 basis points.');
+    if(o.threshold<.5||o.threshold>=.95)throw new Error('Probability threshold must be at least 0.50 and below 0.95.');
+    if(o.maxExposure<0||o.maxExposure>1)throw new Error('Maximum exposure must be between 0 and 1 (no leverage).');
+    if(o.targetVol<=0||o.targetVol>1)throw new Error('Annual volatility target must be above 0 and at most 1.');
+    if(o.trainFraction<.4||o.validationFraction<.1||o.trainFraction+o.validationFraction>.9)throw new Error('Use at least 40% training, 10% validation, and 10% testing.');
+    if(!Number.isInteger(o.retrainEvery)||o.retrainEvery<1||o.retrainEvery>250)throw new Error('Retrain interval must be an integer from 1 to 250.');
+    o.synthetic=Boolean(o.synthetic);o.sourceName=String(o.sourceName).replace(/[\u0000-\u001f<>]/g,'').slice(0,160);
+    return o;
+  }
+  function positionFor(probability,volatility,o) {
+    if(probability<=o.threshold)return 0;
+    const conviction=clamp((probability-o.threshold)/(1-o.threshold),0,1);
+    return Math.min(o.maxExposure,o.targetVol/Math.max(.01,volatility))*conviction;
+  }
+  function portfolio(rows,probabilities,positions,bars,o) {
+    const fee=o.feeBps/10000,series=[],trades=[],daily=[];let equity=o.initialCapital,peak=equity,driftedPosition=0,drawdown=0,tradeCount=0;
+    for(let j=0;j<rows.length;j++) {
+      const r=rows[j],p=positions[j],delta=p-driftedPosition,before=equity,cost=fee*Math.abs(delta);
+      equity*=1-cost;equity*=1+p*r.return;
+      driftedPosition=p*(1+r.return)/(1+p*r.return);
+      const periodEquity=equity;
+      if(Math.abs(delta)>1e-10){tradeCount++;trades.push({signalDate:bars[r.i].date,executionDate:bars[r.i+1].date,exitDate:bars[r.i+2].date,action:delta>0?'BUY':'SELL',weight:p,probability:probabilities[j],netReturn:periodEquity/before-1,equity:periodEquity});}
+      if(j===rows.length-1&&driftedPosition>1e-10){equity*=1-fee*driftedPosition;tradeCount++;trades.push({signalDate:bars[r.i].date,executionDate:bars[r.i+2].date,exitDate:bars[r.i+2].date,action:'LIQUIDATE',weight:0,probability:probabilities[j],netReturn:-fee*driftedPosition,equity});}
+      const ret=equity/before-1;daily.push(ret);peak=Math.max(peak,equity);const dd=1-equity/peak;drawdown=Math.max(drawdown,dd);
+      series.push({date:bars[r.i+2].date,equity,drawdown:dd,position:p,probability:probabilities[j],price:bars[r.i+2].open,return:ret});
+    }
+    const sd=deviation(daily);
+    return {series,trades,metrics:{totalReturn:equity/o.initialCapital-1,maxDrawdown:drawdown,sharpe:sd>1e-12?mean(daily)/sd*Math.sqrt(YEAR):0,accuracy:mean(rows.map((r,j)=>Number((probabilities[j]>=.5)===Boolean(r.y)))),tradeCount,exposure:mean(positions),endingEquity:equity}};
+  }
+  function runExperiment(input,opts={}) {
+    const started=Date.now(),o=validateOptions(opts),normalized=normalizeBars(input),bars=normalized.bars,all=[];
+    for(let i=LOOKBACK;i<bars.length-2;i++){const row=featuresAt(bars,i);row.return=bars[i+2].open/bars[i+1].open-1;row.y=Number(row.return>0);all.push(row);}
+    const trainBoundary=Math.floor(all.length*o.trainFraction),testBoundary=Math.floor(all.length*(o.trainFraction+o.validationFraction));
+    const train=all.slice(0,trainBoundary-2),validation=all.slice(trainBoundary,testBoundary-2),test=all.slice(testBoundary);
+    if(train.length<60||validation.length<10||test.length<10)throw new Error('This split leaves too little data. Add more daily rows or use the default 60/20/20 split.');
+    const fitLog=[];
+    function fitted(rows,at,phase) {
+      const fit=fitModels(rows,16771+at.i);
+      fitLog.push({phase,featureDate:bars[at.i].date,lastTrainingFeature:bars[rows[rows.length-1].i].date,lastTrainingLabelExit:bars[rows[rows.length-1].i+2].date,count:rows.length,scalerMeans:fit.scaler.mu.slice(),scalerStandardDeviations:fit.scaler.sd.slice()});
+      return fit;
+    }
+    const initial=fitted(train,validation[0],'validation'),validationPredictions=validation.map(r=>initial.predict(r.x));
+    const briers=[0,1,2].map(m=>mean(validation.map((r,j)=>(validationPredictions[j][m]-r.y)**2)));
+    const rawWeights=briers.map(e=>1/Math.max(.000001,e)),sumWeight=rawWeights.reduce((a,b)=>a+b,0),weights=rawWeights.map(w=>w/sumWeight);
+    let current=null;const probabilities=[],perModel=[[],[],[]],positions=[];
+    for(let j=0;j<test.length;j++) {
+      const r=test[j];
+      if(j%o.retrainEvery===0)current=fitted(all.filter(t=>t.i<=r.i-3),r,'test');
+      const p=current.predict(r.x);for(let m=0;m<3;m++)perModel[m].push(p[m]);const probability=p.reduce((s,v,m)=>s+v*weights[m],0);
+      probabilities.push(probability);positions.push(positionFor(probability,r.volatility,o));
+    }
+    const latestFeature=featuresAt(bars,bars.length-1),latestFit=fitted(all.filter(t=>t.i<=latestFeature.i-3),latestFeature,'latest');
+    const latestModelProbabilities=latestFit.predict(latestFeature.x),latestProbability=latestModelProbabilities.reduce((s,p,m)=>s+p*weights[m],0);
+    const strategy=portfolio(test,probabilities,positions,bars,o),baseline=portfolio(test,test.map(()=>1),test.map(()=>1),bars,o);
+    const models=[
+      {id:'logistic',name:'Logistic regression',description:'Regularized linear classifier trained with gradient descent; sees standardized historical features.'},
+      {id:'forest',name:'Random forest',description:'17 seeded bootstrap decision trees, maximum depth 4; averages learned leaf probabilities.'},
+      {id:'knn',name:'Nearest neighbors',description:'Distance-weighted votes from up to 25 similar historical observations, using training-only scaling.'}
+    ].map((m,j)=>Object.assign(m,{weight:weights[j],validationBrier:briers[j],testAccuracy:mean(test.map((r,k)=>Number((perModel[j][k]>=.5)===Boolean(r.y)))),latestProbability:latestModelProbabilities[j]}));
+    const coefficientMagnitude=latestFit.models[0].coefficients.map(Math.abs),coefficientSum=coefficientMagnitude.reduce((a,b)=>a+b,0)||1;
+    const features=FEATURE_INFO.map((f,j)=>({name:f[0],value:latestFeature.x[j],importance:coefficientMagnitude[j]/coefficientSum,coefficient:latestFit.models[0].coefficients[j],description:f[1]+' Importance is absolute standardized logistic coefficient share, not ensemble causality.'}));
+    const predictions=test.map((r,j)=>({signalDate:bars[r.i].date,executionDate:bars[r.i+1].date,exitDate:bars[r.i+2].date,probability:probabilities[j],position:positions[j],actualReturn:r.return}));
+    const firstTest=test[0],lastValidation=validation[validation.length-1],matured=fitLog.every(f=>f.lastTrainingLabelExit<f.featureDate);
+    const audit=[
+      {label:'Chronological split',passed:train[train.length-1].i<validation[0].i&&lastValidation.i<firstTest.i,detail:train.length+' train / '+validation.length+' validation / '+test.length+' test observations; oldest to newest.'},
+      {label:'Two-bar boundary purge',passed:validation[0].i-train[train.length-1].i===3&&firstTest.i-lastValidation.i===3,detail:'The final two feature rows of training and validation are excluded from those splits.'},
+      {label:'Matured training labels',passed:matured,detail:fitLog.length+' fits audited. Every fitted label exits before its prediction feature date; '+fitLog[0].lastTrainingLabelExit+' < '+fitLog[0].featureDate+' at the first fit.'},
+      {label:'Training-only scaling',passed:true,detail:'Means and standard deviations are recomputed only from each fit\'s eligible training rows. Validation and current/future test rows are not passed to the scaler.'},
+      {label:'Validation-only ensemble weights',passed:bars[lastValidation.i+2].date<bars[firstTest.i].date,detail:'Inverse Brier weights use '+validation.length+' validation labels only. Last validation outcome: '+bars[lastValidation.i+2].date+'; first test signal: '+bars[firstTest.i].date+'.'},
+      {label:'Untouched test selection',passed:true,detail:'Threshold and other settings are user inputs; model specifications are fixed. Test outcomes only enter later scheduled training once matured. Changing settings after viewing results is further test tuning.'},
+      {label:'Next-open execution',passed:predictions.every(p=>p.signalDate<p.executionDate&&p.executionDate<p.exitDate),detail:'Features at close t → enter at Open t+1 → value/exit at Open t+2. Holdings form non-overlapping one-session intervals.'},
+      {label:'Costs and liquidation',passed:true,detail:o.feeBps+' bps per absolute change from drifted pre-trade allocation to target allocation; terminal liquidation uses the final drifted weight. Both strategies pay entry and liquidation costs. Multiplicative allocation-cost approximation; no additional slippage.'},
+      {label:'Exposure limits',passed:positions.every(p=>p>=0&&p<=o.maxExposure+1e-12),detail:'Long/cash only. Conviction-scaled allocation with an annualized trailing-volatility target and '+Math.round(o.maxExposure*100)+'% cap. Cash earns zero.'},
+      {label:'Latest signal has no future outcome',passed:true,detail:'Latest close '+bars[latestFeature.i].date+' is inference only. Its next-open return is unknown and excluded from test results.'},
+      {label:'Uncalibrated probabilities',passed:true,detail:'Model outputs and their ensemble are uncalibrated scores; they are not verified real-world success probabilities.'}
+    ];
+    if(o.synthetic)audit.push({label:'Synthetic demonstration',passed:true,detail:'Generated geometric random-walk OHLCV data; no real ticker or live market feed. Generator is not trained or tuned to reward the strategy.'});
+    return {
+      meta:{sourceName:o.sourceName,rows:bars.length,trainRange:[bars[train[0].i].date,bars[train[train.length-1].i].date],validationRange:[bars[validation[0].i].date,bars[lastValidation.i].date],testRange:[bars[firstTest.i].date,bars[test[test.length-1].i+2].date],trainCount:train.length,validationCount:validation.length,testCount:test.length,synthetic:o.synthetic,timing:'Close t features → next Open t+1 entry → Open t+2 outcome',warnings:normalized.warnings,elapsedMs:Date.now()-started},
+      metrics:strategy.metrics,baselineMetrics:baseline.metrics,
+      series:strategy.series.map((r,j)=>Object.assign({},r,{baseline:baseline.series[j].equity})),
+      models,features,latest:{date:bars[latestFeature.i].date,probability:latestProbability,position:positionFor(latestProbability,latestFeature.volatility,o),signal:latestProbability>o.threshold&&o.maxExposure>0?'LONG':'CASH',disagreement:Math.max(...latestModelProbabilities)-Math.min(...latestModelProbabilities),volatility:latestFeature.volatility},
+      trades:strategy.trades,predictions,audit,options:o,
+      validation:{brierByModel:briers,weights,ensembleBrier:mean(validation.map((r,j)=>(validationPredictions[j].reduce((s,p,m)=>s+p*weights[m],0)-r.y)**2)),weightMethod:'Normalized inverse validation Brier error',probabilitiesCalibrated:false,purgeBars:2,fitLog,trainingEvents:fitLog.map(f=>({phase:f.phase,signalDate:f.featureDate,maxTrainingLabelDate:f.lastTrainingLabelExit,lastTrainingFeatureDate:f.lastTrainingFeature,trainingCount:f.count,scalerMeans:f.scalerMeans,scalerStandardDeviations:f.scalerStandardDeviations})),selection:{maxValidationLabelDate:bars[lastValidation.i+2].date,firstTestSignalDate:bars[firstTest.i].date,weightsFixedBeforeTest:true},featureNames:FEATURE_INFO.map(f=>f[0]),label:'Open[t+2] / Open[t+1] - 1',lookback:LOOKBACK}
+    };
+  }
+  return {generateDemo,parseCSV,runExperiment,version:'1.0.0'};
+});
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const finite = value => typeof value === 'number' && Number.isFinite(value);
+  const number = (value, digits = 1) => finite(value) ? value.toLocaleString('en-US', {minimumFractionDigits:digits, maximumFractionDigits:digits}) : '—';
+  const pct = (value, digits = 1, signed = false) => finite(value) ? `${signed && value > 0 ? '+' : ''}${number(value * 100, digits)}%` : '—';
+  const cash = value => finite(value) ? value.toLocaleString('en-US', {style:'currency', currency:'USD', maximumFractionDigits:0}) : '—';
+  const shortDate = value => {
+    if (!value) return '—';
+    const parsed = new Date(String(value).slice(0,10) + 'T12:00:00Z');
+    return Number.isNaN(parsed.getTime()) ? String(value) : parsed.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric',timeZone:'UTC'});
+  };
+  const text = (id, value) => { $(id).textContent = value; };
+  const state = {bars:[], sourceName:'Synthetic demo', synthetic:true, warnings:[], dataVersion:0, result:null, applied:null, mode:'equity', running:false, chart:null, hoverIndex:0, toastTimer:null};
+  const controls = ['threshold','fees','exposure','capital'];
+
+  function setTab(name, replaceHash = true) {
+    if (!['overview','notes','data'].includes(name)) name='overview';
+    document.querySelectorAll('.nav-tab').forEach(button => {
+      const active=button.dataset.tab===name;
+      button.classList.toggle('active',active);
+      if (active) button.setAttribute('aria-current','page'); else button.removeAttribute('aria-current');
+    });
+    document.querySelectorAll('.tab-panel').forEach(panel => {panel.hidden=panel.id!=='section-'+name;});
+    if (replaceHash && location.hash!=='#'+name) {
+      try {history.replaceState(null,'','#'+name);} catch (_) { /* File previews may restrict history. */ }
+    }
+    if (name==='overview' && state.result) renderChart();
+  }
+
+  function values() {
+    return {initialCapital:Number($('capital').value),feeBps:Number($('fees').value),threshold:Number($('threshold').value),maxExposure:Number($('exposure').value),targetVol:.15,trainFraction:.6,validationFraction:.2,retrainEvery:20,sourceName:state.sourceName,synthetic:state.synthetic};
+  }
+  function fingerprint() { return JSON.stringify({options:values(),dataVersion:state.dataVersion}); }
+  function updateDirty() {
+    text('threshold-value',pct(Number($('threshold').value),0));
+    if (state.running) return;
+    const dirty=state.applied!==null&&state.applied!==fingerprint();
+    $('run-state').classList.toggle('stale',dirty);
+    if (dirty) text('run-state','Changes pending · run to apply');
+    else if (state.result) text('run-state','Experiment complete · '+number(state.result.meta.elapsedMs||0,0)+' ms');
+    else text('run-state','Ready to run');
+    $('staged-notice').hidden=!dirty;
+    if (dirty) text('staged-notice',`Pending experiment: ${state.sourceName} · ${state.bars.length.toLocaleString('en-US')} daily rows. Results below belong to the last completed run.`);
+  }
+  function error(message) {
+    text('error-text',message);
+    $('error-banner').hidden=false;
+    $('error-banner').scrollIntoView({block:'nearest',behavior:'auto'});
+  }
+  function clearError() { $('error-banner').hidden=true; }
+  function toast(message) {
+    clearTimeout(state.toastTimer);
+    text('toast',message);$('toast').hidden=false;
+    state.toastTimer=setTimeout(()=>{$('toast').hidden=true;},3500);
+  }
+  function dataStatus() {
+    const warnings=state.warnings.length?' '+state.warnings.join(' '):'';
+    text('data-status',`${state.sourceName} · ${state.bars.length.toLocaleString('en-US')} daily rows loaded.${warnings}`);
+  }
+  function loadDemo() {
+    if (!window.SignalEngine) {error('The research engine did not load. Keep index.html, app.js, style.css, and engine.js in the same folder, then reopen index.html.');return;}
+    state.bars=SignalEngine.generateDemo(42,760);state.sourceName='Synthetic demo';state.synthetic=true;state.warnings=[];state.dataVersion++;
+    $('csv-file').value='';clearError();dataStatus();updateDirty();
+    if (state.result) toast('Reproducible demo loaded. Run experiment to apply.');
+  }
+  async function loadFile(file) {
+    if (!file) return;
+    clearError();
+    if (file.size>5*1024*1024) {error('This file is larger than 5 MB. Use a CSV containing 180–5,000 daily rows for a single stock.');return;}
+    try {
+      text('data-status','Reading '+file.name+'…');
+      const input=await file.text();
+      const parsed=SignalEngine.parseCSV(input);
+      state.bars=parsed.bars;state.sourceName=file.name;state.synthetic=false;state.warnings=parsed.warnings||[];state.dataVersion++;
+      dataStatus();updateDirty();toast('CSV loaded. Run experiment to test it.');
+    } catch (e) {dataStatus();error(e.message||'The selected CSV could not be read.');}
+    finally {$('csv-file').value='';}
+  }
+  async function run() {
+    if (state.running) return;
+    clearError();
+    if (!window.SignalEngine) {error('The research engine is missing. Reopen index.html from the complete Signal Lab folder.');return;}
+    for (const id of ['fees','capital']) {
+      if (!$(id).checkValidity() || !$(id).value.trim()) {error(id==='fees'?'Enter a fee from 0 to 100 basis points.':'Enter starting capital from $100 to $1,000,000,000.');$(id).focus();return;}
+    }
+    const options=values(),applied=fingerprint(),input=state.bars.slice(),warnings=state.warnings.slice();
+    state.running=true;document.body.classList.add('loading');
+    $('run-button').disabled=true;['upload-button','data-upload-button','use-demo',...controls].forEach(id=>{$(id).disabled=true;});
+    text('run-text','Testing models…');text('run-state','Training → validation → test');$('run-state').classList.remove('stale');
+    await new Promise(resolve=>setTimeout(resolve,35));
+    try {
+      const result=SignalEngine.runExperiment(input,options);
+      result.meta.warnings=[...new Set([...(result.meta.warnings||[]),...warnings])];
+      state.result=result;state.applied=applied;
+      render(result);
+      ['export-signal','export-predictions','export-report'].forEach(id=>{$(id).disabled=false;});
+    } catch (e) {error(e.message||'The experiment could not be completed.');}
+    finally {
+      state.running=false;document.body.classList.remove('loading');
+      $('run-button').disabled=false;['upload-button','data-upload-button','use-demo',...controls].forEach(id=>{$(id).disabled=false;});
+      text('run-text','Run experiment');updateDirty();
+    }
+  }
+  function render(r) {
+    const m=r.metrics,b=r.baselineMetrics;
+    $('source-badge').className='badge '+(r.meta.synthetic?'synthetic':'imported');
+    $('source-badge').innerHTML='<span aria-hidden="true">◈</span> '+(r.meta.synthetic?'SYNTHETIC DEMO':'IMPORTED DATA');
+    text('source-detail',r.meta.sourceName+' · '+r.meta.rows.toLocaleString('en-US')+' daily rows');
+    text('test-window',shortDate(r.meta.testRange[0])+' — '+shortDate(r.meta.testRange[1]));
+    text('metric-return',pct(m.totalReturn,2,true));$('metric-return').className='metric-number '+(m.totalReturn>=0?'positive':'negative');
+    const delta=m.totalReturn-b.totalReturn;
+    $('metric-return-note').innerHTML=`<span class="${delta>=0?'positive':'negative'}">${delta>0?'+':''}${esc(number(delta*100,2))} pp</span> vs. buy &amp; hold (${esc(pct(b.totalReturn,2,true))})`;
+    text('metric-drawdown',pct(-m.maxDrawdown,2));text('metric-sharpe',number(m.sharpe,2));text('metric-accuracy',pct(m.accuracy,1));
+    text('metric-accuracy-note',r.meta.testCount.toLocaleString('en-US')+' test predictions · 50% decision cutoff');
+    text('ending-equity',cash(m.endingEquity));
+    const latest=r.latest;
+    text('signal-probability',pct(latest.probability,1));
+    $('probability-ring').style.background=`conic-gradient(var(--mint) 0% ${Math.max(0,Math.min(100,latest.probability*100))}%,#2a3945 0% 100%)`;
+    text('signal-action',latest.position>0?'STOCK + CASH':'HOLD CASH');$('signal-action').className='signal-pill'+(latest.position>0?'':' cash');
+    text('signal-date',shortDate(latest.date));text('signal-allocation',pct(latest.position,1));
+    $('allocation-fill').style.width=pct(latest.position,2);
+    text('signal-disagreement',number(latest.disagreement*100,1)+' percentage points');text('signal-volatility',pct(latest.volatility,1));
+    $('model-cards').innerHTML=r.models.map((model,i)=>`<article class="model-card"><div class="model-card-top"><span class="model-icon" aria-hidden="true">${['∑','⋈','∴'][i]}</span><span class="model-index">0${i+1}</span></div><h3>${esc(model.name)}</h3><div class="model-weight">${esc(pct(model.weight,1))}<small>weight</small></div><div class="model-weight-track"><span style="width:${Math.max(0,Math.min(100,model.weight*100))}%"></span></div><div class="model-stat"><span>Validation Brier</span><strong>${esc(number(model.validationBrier,3))}</strong></div><div class="model-stat"><span>Test accuracy</span><strong>${esc(pct(model.testAccuracy,1))}</strong></div><div class="model-stat"><span>Latest up-score</span><strong>${esc(pct(model.latestProbability,1))}</strong></div><p class="model-description">${esc(model.description)}</p></article>`).join('');
+    const sorted=r.features.slice().sort((a,b)=>b.importance-a.importance).slice(0,6),signed=sorted.every(f=>finite(f.coefficient));
+    const max=Math.max(.00001,...sorted.map(f=>signed?Math.abs(f.coefficient):f.importance));
+    $('feature-list').innerHTML=sorted.map(f=>{
+      const value=signed?f.coefficient:f.importance,negative=value<0;
+      return `<div class="feature-row" title="${esc(f.description)}"><span class="feature-name">${esc(f.name)}</span><div class="feature-bar"><span class="${negative?'negative':''}" style="width:${Math.min(100,Math.abs(value)/max*100)}%"></span></div><span class="feature-value ${negative?'negative':''}">${esc(signed?((value>0?'+':'')+number(value,2)):pct(value,0))}</span></div>`;
+    }).join('');
+    document.querySelector('.feature-panel .panel-footnote').textContent=signed?'Top six standardized logistic coefficients from the latest fit. Positive means a higher model up-score; these are associations, not causes.':'Top six shares of absolute standardized logistic coefficients. Larger means more influence within the logistic model, not the ensemble; these are associations, not causes.';
+    const total=r.meta.trainCount+r.meta.validationCount+r.meta.testCount;
+    text('row-count',total.toLocaleString('en-US')+' eligible observations');
+    $('split-labels').innerHTML=[['Training',r.meta.trainRange,r.meta.trainCount],['Validation',r.meta.validationRange,r.meta.validationCount],['Final test',r.meta.testRange,r.meta.testCount]].map(([name,range,count])=>`<div><strong>${esc(shortDate(range[0]))} — ${esc(shortDate(range[1]))}</strong>${esc(count.toLocaleString('en-US'))} ${esc(name.toLowerCase())} observations</div>`).join('');
+    $('audit-list').innerHTML=r.audit.map(a=>`<span class="audit-item${a.passed?'':' failed'}" title="${esc(a.detail)}"><span aria-hidden="true">${a.passed?'✓':'!'}</span><span class="sr-only">${a.passed?'Passed: ':'Failed: '}</span>${esc(a.label)}</span>`).join('');
+    text('trade-count',m.tradeCount.toLocaleString('en-US')+' allocation changes');text('average-exposure',pct(m.exposure,1)+' average stock exposure');
+    $('trade-rows').innerHTML=r.trades.length?r.trades.slice(-20).reverse().map(t=>`<tr><td>${esc(t.signalDate)}</td><td>${esc(t.executionDate)}</td><td><span class="table-action${t.action==='SELL'||t.action==='LIQUIDATE'?' cash':''}">${esc(t.action)}</span></td><td class="numeric">${esc(pct(t.weight,1))}</td><td class="numeric">${esc(pct(t.probability,1))}</td><td class="numeric ${t.netReturn>=0?'return-positive':'return-negative'}">${esc(pct(t.netReturn,2,true))}</td><td class="numeric">${esc(cash(t.equity))}</td></tr>`).join(''):'<tr><td colspan="7" class="empty-row">No allocation changes. The strategy stayed in cash for this test.</td></tr>';
+    if (r.meta.warnings.length) text('data-status',r.meta.sourceName+' · '+r.meta.warnings.join(' '));
+    renderChart();
+  }
+
+  function renderChart() {
+    if (!state.result) return;
+    const r=state.result,cap=r.options.initialCapital;
+    const initial={date:r.predictions[0]?.executionDate||r.meta.testRange[0],equity:cap,baseline:cap,drawdown:0};
+    const rows=[initial,...r.series];let basePeak=cap;
+    const points=rows.map(row=>{basePeak=Math.max(basePeak,row.baseline);return {...row,baselineDrawdown:1-row.baseline/basePeak};});
+    const drawdown=state.mode==='drawdown',W=900,H=285,left=11,right=68,top=20,bottom=32,pw=W-left-right,ph=H-top-bottom;
+    const vals=points.flatMap(p=>drawdown?[-p.drawdown,-p.baselineDrawdown]:[p.equity,p.baseline]);
+    let lo=Math.min(...vals),hi=Math.max(...vals),span=hi-lo;
+    if (span<.000001) {span=drawdown?.01:Math.max(1,cap*.04);lo-=span*.5;hi+=span*.5;}
+    else {lo-=span*.12;hi+=span*.12;}
+    if (drawdown) hi=Math.max(hi,0);
+    const x=i=>left+i/(points.length-1)*pw,y=v=>top+(hi-v)/(hi-lo)*ph;
+    const get=(p,baseline=false)=>drawdown?-(baseline?p.baselineDrawdown:p.drawdown):(baseline?p.baseline:p.equity);
+    const path=base=>points.map((p,i)=>(i?'L':'M')+x(i).toFixed(2)+','+y(get(p,base)).toFixed(2)).join(' ');
+    const strategyPath=path(false),area=strategyPath+` L${x(points.length-1)},${top+ph} L${left},${top+ph} Z`;
+    const axisLabel=v=>drawdown?pct(v,1):(Math.abs(v)>=1000000?'$'+number(v/1000000,1)+'m':Math.abs(v)>=1000?'$'+number(v/1000,1)+'k':cash(v));
+    let grid='';
+    for (let i=0;i<5;i++) {const v=lo+(hi-lo)*i/4,py=y(v);grid+=`<line class="chart-grid" x1="${left}" x2="${W-right+4}" y1="${py}" y2="${py}"/><text x="${W-right+14}" y="${py+3}">${esc(axisLabel(v))}</text>`;}
+    let labels='';
+    for(let j=0;j<5;j++){const i=Math.round((points.length-1)*j/4),date=new Date(points[i].date+'T12:00:00Z'),label=date.toLocaleDateString('en-US',{month:'short',day:'numeric',timeZone:'UTC'});labels+=`<text x="${x(i)}" y="${H-9}" text-anchor="${j===0?'start':j===4?'end':'middle'}">${esc(label)}</text>`;}
+    $('equity-chart').innerHTML=`<title>${drawdown?'Drawdown':'Simulated account value'}: Signal Lab versus buy and hold</title><desc>The final test window, after modeled fees. Use left and right arrow keys to inspect individual dates.</desc><defs><linearGradient id="equity-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c0f4b1" stop-opacity=".12"/><stop offset="100%" stop-color="#c0f4b1" stop-opacity="0"/></linearGradient></defs>${grid}<path d="${area}" fill="url(#equity-fill)"/><path class="baseline-line" d="${path(true)}"/><path class="strategy-line" d="${strategyPath}"/>${labels}<g id="chart-hover" visibility="hidden"><line id="hover-line" class="hover-line" y1="${top}" y2="${top+ph}"/><circle id="hover-strategy" r="4" fill="#c0f4b1" stroke="#10171e" stroke-width="2"/><circle id="hover-baseline" r="3" fill="#8dc9ee" stroke="#10171e" stroke-width="2"/></g>`;
+    $('equity-chart').setAttribute('aria-label',(drawdown?'Drawdown':'Equity')+' comparison chart. Focus and use arrow keys to inspect dates.');
+    $('chart-empty').hidden=true;$('chart-tooltip').hidden=true;
+    state.chart={points,x,y,get,pw,left,W};state.hoverIndex=Math.min(state.hoverIndex,points.length-1);
+    $('equity-view').classList.toggle('selected',!drawdown);$('drawdown-view').classList.toggle('selected',drawdown);
+    $('equity-view').setAttribute('aria-pressed',String(!drawdown));$('drawdown-view').setAttribute('aria-pressed',String(drawdown));
+  }
+  function showChartPoint(index) {
+    if (!state.chart) return;
+    const c=state.chart;index=Math.max(0,Math.min(c.points.length-1,index));state.hoverIndex=index;
+    const p=c.points[index],px=c.x(index),sy=c.y(c.get(p)),by=c.y(c.get(p,true));
+    $('chart-hover').setAttribute('visibility','visible');$('hover-line').setAttribute('x1',px);$('hover-line').setAttribute('x2',px);
+    $('hover-strategy').setAttribute('cx',px);$('hover-strategy').setAttribute('cy',sy);$('hover-baseline').setAttribute('cx',px);$('hover-baseline').setAttribute('cy',by);
+    const format=state.mode==='drawdown'?v=>pct(v,2):cash;
+    $('chart-tooltip').innerHTML=`<strong>${esc(shortDate(p.date))}</strong><div class="tip-strategy"><span>Signal Lab</span><span>${esc(format(c.get(p)))}</span></div><div class="tip-baseline"><span>Buy &amp; hold</span><span>${esc(format(c.get(p,true)))}</span></div>`;
+    $('chart-tooltip').hidden=false;
+    const wrap=$('chart-wrap'),width=wrap.getBoundingClientRect().width,tipWidth=$('chart-tooltip').offsetWidth;
+    $('chart-tooltip').style.left=Math.max(0,Math.min(width-tipWidth,px/c.W*width-tipWidth/2))+'px';$('chart-tooltip').style.top='1px';
+    $('equity-chart').setAttribute('aria-label',`${shortDate(p.date)}. Signal Lab ${format(c.get(p))}. Buy and hold ${format(c.get(p,true))}. Use arrow keys for other dates.`);
+  }
+  function hideChartPoint() {if($('chart-hover'))$('chart-hover').setAttribute('visibility','hidden');$('chart-tooltip').hidden=true;}
+
+  function download(content,filename,type) {
+    const blob=new Blob([content],{type}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);toast('Downloaded '+filename);
+  }
+  const csvCell = v => /[",\r\n]/.test(String(v))?'"'+String(v).replace(/"/g,'""')+'"':String(v);
+  function csv(rows) {return rows.map(row=>row.map(csvCell).join(',')).join('\r\n')+'\r\n';}
+  function dataCSV(bars) {return csv([['Date','Open','High','Low','Close','Volume'],...bars.map(b=>[b.date,b.open,b.high,b.low,b.close,b.volume])]);}
+  function exportPredictions() {
+    if (!state.result) return;
+    download(csv([['signal_date','execution_date','outcome_date','up_score_uncalibrated','stock_allocation','actual_open_to_open_return'],...state.result.predictions.map(p=>[p.signalDate,p.executionDate,p.exitDate,p.probability,p.position,p.actualReturn])]),'signal-lab-predictions.csv','text/csv;charset=utf-8');
+  }
+  function exportReport() {
+    if (!state.result) return;
+    download(JSON.stringify({application:'Signal Lab',version:SignalEngine.version,notice:'Educational simulation. Synthetic demo results are not market evidence. Probabilities are uncalibrated. No live orders.',...state.result},null,2),'signal-lab-report.json','application/json');
+  }
+  function exportSignal() {
+    if (!state.result) return;
+    const r=state.result;
+    download(JSON.stringify({application:'Signal Lab',type:'proposed_next_open_allocation',sourceName:r.meta.sourceName,synthetic:r.meta.synthetic,signalAtClose:r.latest.date,entry:'Next available session open',holdingWindow:'Next open to the following open',stockAllocation:r.latest.position,cashAllocation:1-r.latest.position,action:r.latest.position>0?'TARGET_LONG_ALLOCATION':'TARGET_CASH',modelUpScore:r.latest.probability,probabilitiesCalibrated:false,threshold:r.options.threshold,maxExposure:r.options.maxExposure,estimatedAnnualVolatility:r.latest.volatility,notice:'Browser research diagnostic only. No live order was placed. This JSON is not a competition submission; use the separate .pkl model and .ipynb notebook from the competition kit.'},null,2),'signal-lab-next-signal.json','application/json');
+  }
+
+  document.querySelectorAll('.nav-tab').forEach(button=>button.addEventListener('click',()=>setTab(button.dataset.tab)));
+  document.querySelectorAll('[data-go-tab]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();setTab(link.dataset.goTab);$('section-'+link.dataset.goTab).scrollIntoView({block:'start'});}));
+  document.querySelector('.site-header .brand').addEventListener('click',event=>{event.preventDefault();setTab('overview');});
+  window.addEventListener('hashchange',()=>setTab(location.hash.slice(1),false));
+  ['upload-button','data-upload-button'].forEach(id=>$(id).addEventListener('click',()=>$('csv-file').click()));
+  $('csv-file').addEventListener('change',event=>loadFile(event.target.files[0]));
+  $('use-demo').addEventListener('click',loadDemo);$('run-button').addEventListener('click',run);$('dismiss-error').addEventListener('click',clearError);
+  controls.forEach(id=>{$(id).addEventListener('input',updateDirty);$(id).addEventListener('change',updateDirty);});
+  $('equity-view').addEventListener('click',()=>{state.mode='equity';renderChart();});$('drawdown-view').addEventListener('click',()=>{state.mode='drawdown';renderChart();});
+  $('equity-chart').addEventListener('pointermove',event=>{if(!state.chart)return;const rect=event.currentTarget.getBoundingClientRect(),c=state.chart,svgX=(event.clientX-rect.left)/rect.width*c.W;showChartPoint(Math.round((svgX-c.left)/c.pw*(c.points.length-1)));});
+  $('equity-chart').addEventListener('pointerleave',hideChartPoint);$('equity-chart').addEventListener('blur',hideChartPoint);
+  $('equity-chart').addEventListener('keydown',event=>{if(!state.chart)return;if(['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){event.preventDefault();showChartPoint(event.key==='Home'?0:event.key==='End'?state.chart.points.length-1:state.hoverIndex+(event.key==='ArrowRight'?1:-1));}else if(event.key==='Escape')hideChartPoint();});
+  $('export-predictions').addEventListener('click',exportPredictions);$('export-report').addEventListener('click',exportReport);$('export-signal').addEventListener('click',exportSignal);
+  $('download-data').addEventListener('click',()=>download(dataCSV(state.bars),state.synthetic?'signal-lab-synthetic-demo.csv':'signal-lab-loaded-data.csv','text/csv;charset=utf-8'));
+  $('download-template').addEventListener('click',()=>download('Date,Open,High,Low,Close,Volume\r\n2024-01-02,100,102,99,101,1200000\r\n2024-01-03,101,103,100,102,1350000\r\n2024-01-04,102,104,101,103,1280000\r\n','signal-lab-format-template.csv','text/csv;charset=utf-8'));
+  setTab(location.hash.slice(1)||'overview',false);loadDemo();run();
+})();
+
+</script>
+</body>
+</html>

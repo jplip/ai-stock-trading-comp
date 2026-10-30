@@ -1,0 +1,81 @@
+[
+  {
+    "Time": "13:31:20",
+    "Note": "Frozen model; post-selection diagnostics; 2020\u20132022 are in-sample",
+    "results": [
+      {
+        "Test": "2020",
+        "Stocks": "JPM, XOM, PFE, CROX, M",
+        "Your Sharpe": -0.01730212715135139,
+        "Buy & hold Sharpe": 0.13673990876023767,
+        "Your return": -0.024381736345939098,
+        "Honest?": "no: model saw this data"
+      },
+      {
+        "Test": "2021",
+        "Stocks": "JPM, XOM, PFE, CROX, M",
+        "Your Sharpe": 2.01493416661895,
+        "Buy & hold Sharpe": 2.2838608079900307,
+        "Your return": 0.6345041876531263,
+        "Honest?": "no: model saw this data"
+      },
+      {
+        "Test": "2022",
+        "Stocks": "JPM, XOM, PFE, CROX, M",
+        "Your Sharpe": 1.0626236532683493,
+        "Buy & hold Sharpe": 0.2770241174772354,
+        "Your return": 0.17512096597552662,
+        "Honest?": "no: model saw this data"
+      },
+      {
+        "Test": "2023",
+        "Stocks": "JPM, XOM, PFE, CROX, M",
+        "Your Sharpe": -0.28341432060756605,
+        "Buy & hold Sharpe": -0.1864711615361525,
+        "Your return": -0.04560712223897423,
+        "Honest?": "yes"
+      },
+      {
+        "Test": "2024",
+        "Stocks": "JPM, XOM, PFE, CROX, M",
+        "Your Sharpe": 0.9664509389575761,
+        "Buy & hold Sharpe": 0.6651549049436812,
+        "Your return": 0.1218932350297186,
+        "Honest?": "yes"
+      },
+      {
+        "Test": "Big tech (2024)",
+        "Stocks": "AAPL, MSFT, NVDA, META",
+        "Your Sharpe": 1.8844912711826027,
+        "Buy & hold Sharpe": 1.9882498671979931,
+        "Your return": 0.6554989827513116,
+        "Honest?": "yes"
+      },
+      {
+        "Test": "Steady (2024)",
+        "Stocks": "JNJ, PG, KO, DUK",
+        "Your Sharpe": 0.49735379980317684,
+        "Buy & hold Sharpe": 0.8162593749283595,
+        "Your return": 0.045556784344511936,
+        "Honest?": "yes"
+      },
+      {
+        "Test": "Struggling (2024)",
+        "Stocks": "INTC, F, M, HOG",
+        "Your Sharpe": -1.5415876932485146,
+        "Buy & hold Sharpe": -0.9344972664751383,
+        "Your return": -0.23530411938774054,
+        "Honest?": "yes"
+      },
+      {
+        "Test": "Volatile (2024)",
+        "Stocks": "PLUG, AAL, CROX, BA",
+        "Your Sharpe": 0.9847043395521796,
+        "Buy & hold Sharpe": -0.04494799314789301,
+        "Your return": 0.13874246875920382,
+        "Honest?": "yes"
+      }
+    ],
+    "code": "def predict(history):\n    return float(model.predict(history))\n"
+  }
+]

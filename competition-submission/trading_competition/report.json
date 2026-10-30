@@ -1,0 +1,482 @@
+{
+  "selected_kind": "starter_trend",
+  "selection_rule": "Highest mean validation Sharpe minus 0.25 times its across-year standard deviation; ties alphabetically. Set before 2023 testing.",
+  "training": {
+    "stocks": [
+      "AAL",
+      "AAPL",
+      "AMZN",
+      "BA",
+      "C",
+      "CAT",
+      "CROX",
+      "CVX",
+      "DIS",
+      "DUK",
+      "F",
+      "GIS",
+      "GOOGL",
+      "HOG",
+      "HON",
+      "INTC",
+      "JNJ",
+      "JPM",
+      "KO",
+      "M",
+      "META",
+      "MMM",
+      "MSFT",
+      "NEE",
+      "NKE",
+      "NVDA",
+      "PFE",
+      "PG",
+      "PLUG",
+      "T",
+      "UNH",
+      "VZ",
+      "WMT",
+      "XOM"
+    ],
+    "date_start": "2015-01-01",
+    "date_end": "2022-12-31",
+    "samples": 64328,
+    "last_feature_date": "2022-12-28",
+    "last_label_date": "2022-12-30"
+  },
+  "validation": {
+    "years": [
+      2019,
+      2020,
+      2021,
+      2022
+    ],
+    "stocks": [
+      "AAPL",
+      "JPM",
+      "XOM",
+      "JNJ",
+      "CROX",
+      "INTC",
+      "PLUG",
+      "KO"
+    ],
+    "records": [
+      {
+        "kind": "trend",
+        "year": 2019,
+        "fit_through": "2018-12-31",
+        "last_training_label": "2018-12-31",
+        "Sharpe": 1.3949925282547269,
+        "Total return": 0.057617826514491544,
+        "Max drawdown": -0.03956795402753155,
+        "Final equity": 10576.178265144916,
+        "Intervals": 251,
+        "Fees paid": 110.60829378957277,
+        "Trades": 1822
+      },
+      {
+        "kind": "ridge",
+        "year": 2019,
+        "fit_through": "2018-12-31",
+        "last_training_label": "2018-12-31",
+        "Sharpe": 1.2504195200395551,
+        "Total return": 0.03960091865524529,
+        "Max drawdown": -0.029809034918132582,
+        "Final equity": 10396.009186552454,
+        "Intervals": 251,
+        "Fees paid": 99.32461470541612,
+        "Trades": 1748
+      },
+      {
+        "kind": "extra_trees",
+        "year": 2019,
+        "fit_through": "2018-12-31",
+        "last_training_label": "2018-12-31",
+        "Sharpe": 1.5414946880334788,
+        "Total return": 0.04856890584436058,
+        "Max drawdown": -0.02698970024874292,
+        "Final equity": 10485.689058443606,
+        "Intervals": 251,
+        "Fees paid": 83.76159076514482,
+        "Trades": 1737
+      },
+      {
+        "kind": "starter_trend",
+        "year": 2019,
+        "fit_through": "2018-12-31",
+        "last_training_label": "2018-12-31",
+        "Sharpe": 1.256234662492093,
+        "Total return": 0.16166751932872714,
+        "Max drawdown": -0.10838725230783453,
+        "Final equity": 11616.675193287272,
+        "Intervals": 251,
+        "Fees paid": 53.33776444672153,
+        "Trades": 42
+      },
+      {
+        "kind": "defensive_trend",
+        "year": 2019,
+        "fit_through": "2018-12-31",
+        "last_training_label": "2018-12-31",
+        "Sharpe": 1.6509164460398535,
+        "Total return": 0.11611053412845185,
+        "Max drawdown": -0.06132793215332377,
+        "Final equity": 11161.105341284518,
+        "Intervals": 251,
+        "Fees paid": 69.6533167243526,
+        "Trades": 1172
+      },
+      {
+        "kind": "trend",
+        "year": 2020,
+        "fit_through": "2019-12-31",
+        "last_training_label": "2019-12-31",
+        "Sharpe": 1.0824222032469588,
+        "Total return": 0.05745647876619797,
+        "Max drawdown": -0.0385097719503098,
+        "Final equity": 10574.564787661979,
+        "Intervals": 252,
+        "Fees paid": 86.35793459486771,
+        "Trades": 1712
+      },
+      {
+        "kind": "ridge",
+        "year": 2020,
+        "fit_through": "2019-12-31",
+        "last_training_label": "2019-12-31",
+        "Sharpe": 0.8007338326994403,
+        "Total return": 0.032895611342855124,
+        "Max drawdown": -0.03563892493784182,
+        "Final equity": 10328.956113428552,
+        "Intervals": 252,
+        "Fees paid": 80.30558929305924,
+        "Trades": 1578
+      },
+      {
+        "kind": "extra_trees",
+        "year": 2020,
+        "fit_through": "2019-12-31",
+        "last_training_label": "2019-12-31",
+        "Sharpe": 0.8976941732354328,
+        "Total return": 0.03566100742872336,
+        "Max drawdown": -0.03539939266365866,
+        "Final equity": 10356.610074287233,
+        "Intervals": 252,
+        "Fees paid": 67.01664073784507,
+        "Trades": 1601
+      },
+      {
+        "kind": "starter_trend",
+        "year": 2020,
+        "fit_through": "2019-12-31",
+        "last_training_label": "2019-12-31",
+        "Sharpe": 1.9639362317844238,
+        "Total return": 0.9878791015880037,
+        "Max drawdown": -0.2793070757764611,
+        "Final equity": 19878.791015880037,
+        "Intervals": 252,
+        "Fees paid": 56.75029483946483,
+        "Trades": 42
+      },
+      {
+        "kind": "defensive_trend",
+        "year": 2020,
+        "fit_through": "2019-12-31",
+        "last_training_label": "2019-12-31",
+        "Sharpe": 1.7812372619204504,
+        "Total return": 0.28688474537620623,
+        "Max drawdown": -0.13227476438997665,
+        "Final equity": 12868.847453762062,
+        "Intervals": 252,
+        "Fees paid": 82.92101151243095,
+        "Trades": 1246
+      },
+      {
+        "kind": "trend",
+        "year": 2021,
+        "fit_through": "2020-12-31",
+        "last_training_label": "2020-12-31",
+        "Sharpe": 0.8967425782590523,
+        "Total return": 0.04221520112259758,
+        "Max drawdown": -0.029818004318170832,
+        "Final equity": 10422.152011225975,
+        "Intervals": 251,
+        "Fees paid": 102.90721857516252,
+        "Trades": 1798
+      },
+      {
+        "kind": "ridge",
+        "year": 2021,
+        "fit_through": "2020-12-31",
+        "last_training_label": "2020-12-31",
+        "Sharpe": 0.9695131984759372,
+        "Total return": 0.034728765982395604,
+        "Max drawdown": -0.021153967693250175,
+        "Final equity": 10347.287659823956,
+        "Intervals": 251,
+        "Fees paid": 89.14925381361834,
+        "Trades": 1734
+      },
+      {
+        "kind": "extra_trees",
+        "year": 2021,
+        "fit_through": "2020-12-31",
+        "last_training_label": "2020-12-31",
+        "Sharpe": 0.9514398014446861,
+        "Total return": 0.033410176937128666,
+        "Max drawdown": -0.022045275323753,
+        "Final equity": 10334.101769371286,
+        "Intervals": 251,
+        "Fees paid": 81.14661202809036,
+        "Trades": 1722
+      },
+      {
+        "kind": "starter_trend",
+        "year": 2021,
+        "fit_through": "2020-12-31",
+        "last_training_label": "2020-12-31",
+        "Sharpe": 1.0424460664496067,
+        "Total return": 0.21942508042184738,
+        "Max drawdown": -0.11892699636122517,
+        "Final equity": 12194.250804218475,
+        "Intervals": 251,
+        "Fees paid": 45.020281537549714,
+        "Trades": 34
+      },
+      {
+        "kind": "defensive_trend",
+        "year": 2021,
+        "fit_through": "2020-12-31",
+        "last_training_label": "2020-12-31",
+        "Sharpe": 1.1253883367906818,
+        "Total return": 0.12244205251391205,
+        "Max drawdown": -0.059561518939414304,
+        "Final equity": 11224.42052513912,
+        "Intervals": 251,
+        "Fees paid": 78.5747007915126,
+        "Trades": 1320
+      },
+      {
+        "kind": "trend",
+        "year": 2022,
+        "fit_through": "2021-12-31",
+        "last_training_label": "2021-12-31",
+        "Sharpe": -0.4982780530455114,
+        "Total return": -0.015564576914232076,
+        "Max drawdown": -0.041960787796220256,
+        "Final equity": 9844.35423085768,
+        "Intervals": 250,
+        "Fees paid": 86.40982081119284,
+        "Trades": 1668
+      },
+      {
+        "kind": "ridge",
+        "year": 2022,
+        "fit_through": "2021-12-31",
+        "last_training_label": "2021-12-31",
+        "Sharpe": -0.7129709251201124,
+        "Total return": -0.016929960854719872,
+        "Max drawdown": -0.03354077827579105,
+        "Final equity": 9830.700391452801,
+        "Intervals": 250,
+        "Fees paid": 63.915271714719,
+        "Trades": 1381
+      },
+      {
+        "kind": "extra_trees",
+        "year": 2022,
+        "fit_through": "2021-12-31",
+        "last_training_label": "2021-12-31",
+        "Sharpe": -0.6353082420572124,
+        "Total return": -0.014881801650096338,
+        "Max drawdown": -0.03112359123124464,
+        "Final equity": 9851.181983499037,
+        "Intervals": 250,
+        "Fees paid": 59.230265931016625,
+        "Trades": 1383
+      },
+      {
+        "kind": "starter_trend",
+        "year": 2022,
+        "fit_through": "2021-12-31",
+        "last_training_label": "2021-12-31",
+        "Sharpe": 0.49026016617175844,
+        "Total return": 0.057126341715993734,
+        "Max drawdown": -0.10754538607467212,
+        "Final equity": 10571.263417159938,
+        "Intervals": 250,
+        "Fees paid": 38.12700821966406,
+        "Trades": 30
+      },
+      {
+        "kind": "defensive_trend",
+        "year": 2022,
+        "fit_through": "2021-12-31",
+        "last_training_label": "2021-12-31",
+        "Sharpe": -0.22185199815810777,
+        "Total return": -0.017293030866009196,
+        "Max drawdown": -0.07658998411651519,
+        "Final equity": 9827.069691339908,
+        "Intervals": 250,
+        "Fees paid": 63.26572393302802,
+        "Trades": 829
+      }
+    ],
+    "summary": [
+      {
+        "kind": "starter_trend",
+        "mean_sharpe": 1.1882192817244706,
+        "std_sharpe": 0.6095789902071693,
+        "selection_score": 1.0358245341726782
+      },
+      {
+        "kind": "defensive_trend",
+        "mean_sharpe": 1.0839225116482194,
+        "std_sharpe": 0.9155137842943396,
+        "selection_score": 0.8550440655746345
+      },
+      {
+        "kind": "trend",
+        "mean_sharpe": 0.7189698141788067,
+        "std_sharpe": 0.837137956567256,
+        "selection_score": 0.5096853250369927
+      },
+      {
+        "kind": "extra_trees",
+        "mean_sharpe": 0.6888301051640964,
+        "std_sharpe": 0.9296894293210123,
+        "selection_score": 0.4564077478338433
+      },
+      {
+        "kind": "ridge",
+        "mean_sharpe": 0.5769239065237051,
+        "std_sharpe": 0.8797049227509692,
+        "selection_score": 0.35699767583596276
+      }
+    ]
+  },
+  "practice": {
+    "start": "2023-01-01",
+    "end": "2023-12-31",
+    "stocks": [
+      "AAPL",
+      "JPM",
+      "XOM",
+      "JNJ"
+    ],
+    "selected_metrics": {
+      "Sharpe": 0.13907215127560804,
+      "Total return": 0.008756083718866936,
+      "Max drawdown": -0.07500220563403914,
+      "Final equity": 10087.56083718867,
+      "Intervals": 249,
+      "Fees paid": 53.942340639038484,
+      "Trades": 22
+    },
+    "buy_and_hold_metrics": {
+      "Sharpe": 1.1896123486293386,
+      "Total return": 0.16069105008769213,
+      "Max drawdown": -0.10658715598724877,
+      "Final equity": 11606.910500876922,
+      "Intervals": 249,
+      "Fees paid": 21.60853901991682,
+      "Trades": 8
+    },
+    "used_for_numerical_selection_score": false,
+    "reused_for_development_feedback": true
+  },
+  "iteration": [
+    {
+      "kind": "starter_trend",
+      "mean_validation_sharpe": 1.1882192817244706,
+      "selection_score": 1.0358245341726782,
+      "decision": "selected"
+    },
+    {
+      "kind": "defensive_trend",
+      "mean_validation_sharpe": 1.0839225116482194,
+      "selection_score": 0.8550440655746345,
+      "decision": "not selected"
+    },
+    {
+      "kind": "trend",
+      "mean_validation_sharpe": 0.7189698141788067,
+      "selection_score": 0.5096853250369927,
+      "decision": "not selected"
+    },
+    {
+      "kind": "extra_trees",
+      "mean_validation_sharpe": 0.6888301051640964,
+      "selection_score": 0.4564077478338433,
+      "decision": "not selected"
+    },
+    {
+      "kind": "ridge",
+      "mean_validation_sharpe": 0.5769239065237051,
+      "selection_score": 0.35699767583596276,
+      "decision": "not selected"
+    }
+  ],
+  "model": {
+    "kind": "starter_trend",
+    "features": [
+      "return_1",
+      "return_5",
+      "return_20",
+      "return_60",
+      "return_120",
+      "trend_20",
+      "trend_100",
+      "volatility_20",
+      "volatility_60",
+      "daily_range",
+      "relative_volume_20",
+      "opening_gap",
+      "intraday_return",
+      "close_location"
+    ],
+    "target": "No fitted prediction target; fixed trading rule",
+    "timing": "history through close t; position executed at open t+1; marked at open t+2",
+    "minimum_history": 100,
+    "learned_parameters": false,
+    "training_rows": 64328,
+    "training_start": "2015-06-25",
+    "training_end": "2022-12-28",
+    "training_label_end": "2022-12-30",
+    "stocks_used": 34,
+    "config": {
+      "target_vol": 0.12,
+      "max_long": 0.8,
+      "max_short": 0.25,
+      "ml_weight": 0.3,
+      "ml_strength": 3.0,
+      "trend_bias": 0.3,
+      "trend_strength": 0.9,
+      "exposure_step": 0.05,
+      "deadband": 0.05,
+      "ridge_alpha": 100.0,
+      "n_estimators": 40,
+      "max_depth": 4,
+      "min_samples_leaf": 80,
+      "random_state": 42
+    },
+    "standardized_coefficients": {},
+    "explanation": "Exact starter rule: 20-day average above 100-day average means 100% long; otherwise cash. No fitted parameters."
+  },
+  "contract_smoke_check": {
+    "dummy_position": 0.0,
+    "seconds_per_call": 0.0002,
+    "passed": true
+  },
+  "harness_version": "sdsu-trading-harness-v1.0",
+  "harness_fee": 0.001,
+  "python": "3.12.14",
+  "development_history": "An initial trend/ridge/tree comparison was scored on 2023 and 2024 and lagged buy-and-hold. That feedback motivated adding the provided low-turnover baseline and a discrete risk-tier alternative. Final numerical ranking still uses only 2019\u20132022 folds. 2023/2024 are development diagnostics; only organizer secret rounds are unseen final evaluation.",
+  "limits": [
+    "Historical validation does not guarantee hidden-round performance.",
+    "Different tickers share market movements; validation examples are not independent.",
+    "No 2023 or 2024 labels enter model fitting or the numerical ranking. Those years were viewed during development and are not claimed as untouched tests.",
+    "The organizer's simulator omits separate borrowing charges, slippage and interest."
+  ]
+}
