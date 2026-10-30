@@ -209,7 +209,7 @@
   "competition_split": {
     "training": "2015-01-01 through 2022-12-31 only",
     "practice": "2023-01-01 through 2023-12-31 only",
-    "held_out": "2024 data must not be used for fitting or parameter selection"
+    "held_out": "2024 was kept out of fitting but viewed during iteration; it is a reused development check, not an untouched final test."
   },
   "validation": {
     "duplicate_ticker_date_keys": 0,

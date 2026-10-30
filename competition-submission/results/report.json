@@ -483,7 +483,7 @@
     "path": "Signal_Lab_submission.pkl",
     "harness_sha256": "9803ddf158af68fc347adcfe6f4d516f69d43e1468965b2de6183532667aaded",
     "fresh_process_passed": true,
-    "team_info_needs_editing": true
+    "team_info_needs_editing": false
   },
   "robustness_runs": [
     {
@@ -565,5 +565,14 @@
       ],
       "code": "def predict(history):\n    return float(model.predict(history))\n"
     }
-  ]
+  ],
+  "sharing_cleanup": {
+    "team_name": "Signal Lab",
+    "team_members": [
+      "Cameron Penaranda",
+      "Justin Paul Liporada"
+    ],
+    "saved_predictor_behavior_unchanged": true,
+    "local_paths_removed_from_shared_artifacts": true
+  }
 }

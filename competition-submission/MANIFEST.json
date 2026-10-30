@@ -3,15 +3,15 @@
   "notebook_executed": true,
   "official_setup_source_unchanged": true,
   "official_fresh_process_export_passed": true,
-  "team_member_names_need_editing": true,
+  "team_member_names_need_editing": false,
   "files": {
     "Signal_Lab_Competition.ipynb": {
-      "bytes": 200726,
-      "sha256": "88d9b4b95c5d22fb4faf122384107ed64a02cf1359aba3c08109e64068b61b4e"
+      "bytes": 200582,
+      "sha256": "cf69096e7d86d21134dbcb232b9f056cef2fcd4d40f813d5660c6177f27948ae"
     },
     "Signal_Lab_submission.pkl": {
-      "bytes": 85897,
-      "sha256": "a1d3918274cddb755f7ac35692384da8decde9b02f7957f17ab0eccd071ffee2"
+      "bytes": 60684,
+      "sha256": "77574781f46b3486339933c24ec42a5866bbdd000c9e07629acc5fe197691b7d"
     },
     "strategy.py": {
       "bytes": 15413,
@@ -28,6 +28,22 @@
     "data/stock_prices_2015_2024.csv": {
       "bytes": 5497338,
       "sha256": "ecc254dabaf8e626457d03b0ac45ff00b6a8e204b583f3e4d2a66598e496729b"
+    },
+    "predict.py": {
+      "bytes": 453,
+      "sha256": "3778b611be78d15f24debf7c34543decfe054e031f6a943646e0a082385a32d3"
     }
-  }
+  },
+  "sharing_preparation": {
+    "local_paths_removed": true,
+    "unchanged_prediction_checks": 32,
+    "fresh_isolated_process_passed": true,
+    "team_member_names_still_placeholders": false
+  },
+  "team_name": "Signal Lab",
+  "team_members": [
+    "Cameron Penaranda",
+    "Justin Paul Liporada"
+  ],
+  "notebook_execution_note": "Numerical outputs retained from the verified run; cleanup changed only team metadata, runtime metadata, and local display paths."
 }
